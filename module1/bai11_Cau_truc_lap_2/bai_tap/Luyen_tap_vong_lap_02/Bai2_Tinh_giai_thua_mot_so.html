@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa</title>
+</head>
+<body>
+<script>
+    let giaiThua=1;
+    let num=parseInt(prompt("Nhập số cần tính"));
+    while (true){
+        if(num>0) {
+            for (let i = 1; i <= num; i++) {
+                giaiThua *= i;
+            }
+            break;
+        }
+        else{
+            num=parseInt(prompt("Nhập lại"));
+        }
+    }
+    alert( giaiThua);
+</script>
+</body>
+</html>

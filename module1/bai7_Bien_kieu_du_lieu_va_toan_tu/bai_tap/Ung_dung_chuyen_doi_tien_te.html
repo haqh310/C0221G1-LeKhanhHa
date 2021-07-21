@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng chuyển đổi tiền tệ</title>
+    <style>
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form name="doi_tien">
+    <table width="600px">
+        <tr>
+            <th>Ammout</th>
+            <th>From Curenncy</th>
+            <th>To Curenncy</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input type="text"  name="amount"></td>
+            <td>
+                <select  name="from_curenncy" onchange="from_curenny">
+                    <option value="1">VND</option>
+                    <option value="23">USA</option>
+                </select>
+            </td>
+            <td>
+                <select name="to_curenccy">
+                    <option value="23">USA</option>
+                    <option value="1">VND</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" onclick="chuyen_doi()">Conver</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<label id="result"></label>
+<script src="Ung_dung_chuyen_doi_tien_te.js"></script>
+</body>
+</html>

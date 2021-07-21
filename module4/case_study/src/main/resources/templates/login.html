@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:insert="layout :: head">
+  </th:block>
+  <meta charset="UTF-8">
+    <title>Login</title>
+  <style>
+    body{
+      background-size: cover;
+      background-image: url("https://hotelfuramadanang.files.wordpress.com/2016/03/furama-resort-da-nang-1.jpg");
+      background-repeat: no-repeat;
+    }
+    button{
+      width: 75px;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <div class="row">
+    <div class="container d-flex justify-content-center mt-5 pt-5">
+      <div class="col-4 d-flex flex-column bg-light">
+        <p class="h4 pt-2 mx-auto">Sign in</p>
+        <div th:if="${#request.getParameter('error') == 'true'}"
+             style="color:red;margin:10px 0px;">
+          Login Failed!!!<br />
+          Reason :
+          <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+                th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                Static summary
+         </span>
+        </div>
+        <form th:action="@{/login_check}" method="post" th:object="${user}" >
+          <div class="form-group">
+            <label>Username:</label>
+            <input type="text" class="form-control" placeholder="Enter username... " id="username" name="username"  th:value="${cookieValue.value}">
+          </div>
+          <div class="form-group">
+            <label>Password:</label>
+            <input type="text" class="form-control" placeholder="Enter password... " name="password" th:field="*{password}">
+          </div>
+          <div class="form-group">
+            <input type="checkbox" name="remember-me" />
+            <label class="form-check-label">Remember me</label>
+          </div>
+          <div class="d-flex justify-content-center ">
+            <a href="/home">
+              <button class="btn btn-dark">Back</button>
+            </a>
+            <button type="submit" class="btn btn-success ml-3 mb-3">Sign in</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

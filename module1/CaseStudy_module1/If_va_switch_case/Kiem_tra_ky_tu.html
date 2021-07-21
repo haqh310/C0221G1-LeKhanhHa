@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra ký tự</title>
+</head>
+<body>
+<script>
+    let kyTu=prompt("Nhập ký tự cần kiểm tra: ");
+    //let arrayChar="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let kt =/([A-z]){1}/g;
+        //let kiemTra= isNaN(parseInt(kyTu)) && kyTu.length===1;
+    let kiemtra
+    do {
+        let kyTu=prompt("Nhập ký tự cần kiểm tra: ");
+        kiemtra= kt.test(kyTu)
+        console.log(kiemtra)
+    }while (kiemtra==false);
+    let arrayChar=["o","u","i","a","e","O","U","I","A","E"];
+    if(arrayChar.indexOf(kyTu) !==-1) {
+        alert(kyTu+" là nguyên âm");
+    }
+    else {
+            alert(kyTu+" là phụ âm");
+    }
+</script>
+</body>
+</html>

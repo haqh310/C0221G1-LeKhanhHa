@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điện thoai</title>
+</head>
+<body>
+<script>
+    function MyPhone(battery) {
+        this.battery =battery;
+        this.messaging = "";
+        this.messageTo ="";
+        this.messageFrom = "";
+        this.check = function () {
+
+        };
+        this.turnPhone = function (ob) {
+            return ob;
+        };
+        this.refillBattery = function () {
+            if(this.battery<100){
+                battery++;
+            }
+        };
+        this.textMessage = function (string) {
+            this.messaging = string;
+            battery--;
+        };
+        this.toMessages = function (phone) {
+            this.messageTo = phone.messaging;
+            battery--;
+        };
+        this.fromMessages = function (phone) {
+            phone.toMessages = this.messaging;
+            battery--;
+        };
+        this.wiewMessageTo = function () {
+            alert(this.messageTo);
+            battery--;
+        };
+        this.wiewMessagefrom = function () {
+            alert(this.messagefrom);
+            battery--;
+        };
+    }
+    let nokia =new MyPhone(90);
+    let iphone =new MyPhone(80);
+    nokia.textMessage("Xin chào 123");
+    nokia.fromMessages(iphone);
+    iphone.wiewMessageTo();
+</script>
+</body>
+</html>

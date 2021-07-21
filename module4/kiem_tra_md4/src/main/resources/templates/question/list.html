@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="layout :: head">
+    </th:block>
+    <meta charset="UTF-8">
+    <title>List Question</title>
+</head>
+<body>
+<div class="container-fluid border pt-5 mt-5">
+    <h1>Danh sách câu hỏi</h1>
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-success" href="/questions/create">Tạo câu hỏi</a>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <form>
+                <table>
+                    <tr>
+                        <td><input type="text" name="keyWord1" placeholder="Tiêu đề..."></td>
+                        <td>
+                            <select name="keyWord2">
+                                <option value="">--Chọn loại câu hỏi</option>
+                                <option th:each="type :${questionTypes}" th:value="${type.name}" th:text="${type.name}">
+                                </option>
+                            </select>
+                        </td>
+                        <td><input class="border border-primary" type="submit" value="Tìm kiếm"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <p style="color: #005cbf" th:text="${msg}"></p>
+    <table id="tableCustomer" class="table table-bordered table-striped ">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tiêu đề</th>
+            <th>Loại câu hỏi</th>
+            <th>Ngày đăng</th>
+            <th>Tình trạng</th>
+            <th>Tính năng</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="question, status : ${questions}">
+            <td th:text="${status.count + questions.number * questions.size}"></td>
+            <td th:text="${question.title}"></td>
+            <td th:text="${question.questionType.name}"></td>
+            <td th:text="${question.dateCreate}"></td>
+            <td th:text="${question.status}"></td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1"
+                        th:data-parameter1="${question.id}"
+                        onclick="showModalView(this.getAttribute('data-parameter1'))">Edit
+                </button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+                        th:data-parameter1="${question.id}" th:data-parameter2="${question.title}"
+                        onclick="showModal(this.getAttribute('data-parameter1'),this.getAttribute('data-parameter2'))">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form th:action="@{/questions/delete}" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Accept delete customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn có muốn xóa câu hỏi : <span style="color: red" id="title"></span>???
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-danger btn-ok" id="delete" value="Delete">
+                    <input type="hidden" id="question_id" name="id">
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="modal fade" id="myModal1" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <form th:action="@{/questions/delete}" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel1">Accept delete customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table id="tableView">
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Đóng">
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div>
+    <a class="btn border border-dark text-primary"
+       th:href="@{/questions(page=${questions.number - 1},keyWord1=${keyWord1},keyWord2=${keyWord2})}"
+       th:if="${questions.hasPrevious()}">Previous</a>
+    <span th:text="${questions.number+1}"></span>/<span th:text="${questions.totalPages}"></span>
+    <a class="btn border border-dark text-primary"
+       th:href="@{/questions(page=${questions.number + 1},keyWord1=${keyWord1},keyWord2=${keyWord2})}"
+       th:if="${questions.hasNext()}">Next</a>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function showModal(id, title) {
+        document.getElementById("question_id").value = id;
+        document.getElementById("title").innerText = title;
+    }
+
+    function showModalView(id) {
+        $.ajax({
+            type: "GET",
+            url: `/api/questions/view?id=${id}`,
+            success: function (data) {
+                console.log(data)
+                let content = "";
+                content = getQuestion(data);
+                $('#tableView').html(content);
+                $('#myModal1').modal('show');
+            },
+            error: function () {
+                location.href = "message.html"
+            }
+        });
+
+    }
+
+    function getQuestion(quest) {
+        return ` <tr>` +
+                `<th>Tieu de</th>`+
+                `<td>${quest.title}</td>` +
+            `</tr>` +
+            ` <tr>` +
+                `<th>Noi dung</th>` +
+                `<td>${quest.question}</td>` +
+            `</tr>` +
+            ` <tr>` +
+                `<th>Tra loi</th>`+
+                `<td>${quest.answer}</td>` +
+            `</tr>` +
+            ` <tr>` +
+            `<th>The loai</th>`+
+            `<td>${quest.questionType.name}</td>` +
+            `</tr>`+
+            ` <tr>` +
+                `<th>Ngay dang</th>`+
+                `<td>${quest.dateCreate}</td>` +
+            `</tr>`+
+            ` <tr>` +
+            `<th>Tinh trang</th>`+
+            `<td>${quest.status}</td>` +
+            `</tr>`;
+
+    }
+</script>
+</body>
+</html>

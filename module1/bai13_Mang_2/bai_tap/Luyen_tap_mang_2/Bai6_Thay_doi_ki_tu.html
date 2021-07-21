@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi kí tự</title>
+</head>
+<body>
+<script>
+    let lengthChar=parseInt(prompt("Nhập chiều dài mảng "));
+    let arrayChar= new Array(lengthChar);
+    for (let i = 0; i < lengthChar; i++) {
+        arrayChar[i] = (prompt("Nhập phần tử A[" + i + "] = "));
+    }
+    document.writeln(arrayChar.join(" "));
+    document.writeln("<br>");
+    for(let i=0;i<lengthChar;i++){
+        if(arrayChar[i]==="-"){
+            arrayChar[i]="_";
+        }
+    }
+    document.writeln(arrayChar.join(" "));
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ngôi sao và chòm sao</title>
+</head>
+<body>
+<script>
+    let star = [ "Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe" ,"Regulus"];
+    let constellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major" ,"Leo"];
+    function localConste(string) {
+        let result="";
+        for(let i=0;i<7;i++){
+            if(star[i]===string){
+                result = constellation[i];
+                break;
+            }
+        }
+        return result;
+    }
+    let stringValue = prompt("Nhập tên ngôi sao");
+    alert(localConste(stringValue))
+</script>
+</body>
+</html>

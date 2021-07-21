@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số nguyên tố trong mảng</title>
+</head>
+<body>
+<script>
+    let m=parseInt(prompt("Nhập giá trị m"));
+    let n=parseInt(prompt("Nhập giá trị n"));
+    let arrayNum=new Array(m);
+    for(let i=0;i<m;i++){
+        arrayNum[i] = new Array(n);
+        for(let j=0;j<n;j++){
+            arrayNum[i][j]=parseInt(prompt("Nhập phần tử ["+i+"]["+j+"]"));
+        }
+    }
+    let result="";
+    let count =0;
+        for(let i=0;i<m;i++){
+        for(let j=0;j<n;j++){
+            if(kiemTraSoNT(arrayNum[i][j])){
+                result+=arrayNum[i][j]+" ";
+                count++;
+            }
+            document.writeln(arrayNum[i][j]);
+        }
+        document.writeln("<br>");
+    }
+        document.writeln("Mảng có "+count+" số nguyên tố: "+result);
+    function kiemTraSoNT(num) {
+        let check=true;
+        if(num<2){
+            check=false;
+        }else {
+            for(let i=2;i<=Math.sqrt(num);i++){
+                if(num%i===0){
+                    check=false;
+                    break;
+                }
+            }
+        }
+        return check;
+    }
+</script>
+</body>
+</html>

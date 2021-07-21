@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp Temperature</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(celsius) {
+            this._celsius=celsius;
+        }
+        get celsius() {
+            return this._celsius;
+        }
+
+        set celsius(value) {
+            this._celsius = value;
+        }
+
+        toFahrenheit() {
+            return 9/5*this._celsius + 32;
+        }
+        toKenvin() {
+            return this._celsius + 273.15;
+        }
+    }
+    let temper = new Temperature(25);
+    alert("Độ F là "+temper.toFahrenheit());
+    alert("Độ K là "+temper.toKenvin());
+</script>
+</body>
+</html>

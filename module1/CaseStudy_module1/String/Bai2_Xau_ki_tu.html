@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xâu kí tự</title>
+</head>
+<body>
+<script>
+    let stringValue = prompt("Nhập vào môt chuỗi");
+    stringValue.trim();
+    let arrayChar="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    let stringChar = "";
+    for(let i=0;i<arrayChar.length;i++){
+        if(stringValue.indexOf(arrayChar[i])!==-1){
+            stringChar+=arrayChar[i];
+        }
+    }
+    // for (let i = 0; i < stringValue.length; i++) {
+    //     let kiemTra = true;
+    //     for (let j = i + 1; j < stringValue.length; j++) {
+    //         if (stringValue[i] === stringValue[j]) {
+    //             kiemTra = false;
+    //             break;
+    //         }
+    //     }
+    //     if (kiemTra) {
+    //         stringChar += stringValue[i];
+    //     }
+    // }
+    document.write("differentSymbolsNaive(" + stringValue + ")=" + stringChar.length);
+</script>
+</body>
+</html>

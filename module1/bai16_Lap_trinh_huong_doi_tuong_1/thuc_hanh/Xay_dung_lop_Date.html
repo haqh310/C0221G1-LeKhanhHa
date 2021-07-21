@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp Date</title>
+</head>
+<body>
+<script>
+    class MyDate {
+        constructor(day,month,year) {
+
+            this._day = day;
+            this._month = month;
+            this._year = year;
+        }
+        get day() {
+            return this._day;
+        }
+
+        set day(value) {
+            this._day = value;
+        }
+
+        get month() {
+            return this._month;
+        }
+
+        set month(value) {
+            this._month = value;
+        }
+
+        get year() {
+            return this._year;
+        }
+
+        set year(value) {
+            this._year = value;
+        }
+
+        setDate(day,month,year) {
+            this._day=day;
+            this._month = month;
+            this._year = year;
+        }
+        toString(){
+            alert(this._day + "/" + this._month + "/" + this._year);
+        }
+
+    };
+    let date = new MyDate(2, 2, 2007);
+    let day = date.day; // 2
+
+    let month = date.month; // 2
+
+    let year = date.year; // 2007
+    alert(day + "/" + month + "/" + year);
+    date.day=10;
+    date.month=10;
+    date.year=2019;
+    alert(date.day + "/" + date.month + "/" + date.year);
+    date.toString();
+</script>
+</body>
+</html>

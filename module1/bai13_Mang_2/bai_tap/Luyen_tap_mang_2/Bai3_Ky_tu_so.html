@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ký tự số</title>
+</head>
+<body>
+<script>
+    let lengthArray=parseInt(prompt("Nhập chiều dài mảng "));
+    let arrayChar= new Array(lengthArray);
+    for (let i = 0; i < lengthArray; i++) {
+        arrayChar[i] = (prompt("Nhập phần tử A[" + i + "] = "));
+    }
+    document.writeln(arrayChar.join(" "));
+    document.writeln("<br>");
+    let charNum="0123456789";
+    let count=0;
+    let result="";
+    for(let i=0;i<charNum.length;i++){
+        if(arrayChar.indexOf(charNum[i])!==-1){
+            count++;
+            result+=charNum[i] +" ";
+        }
+    }
+    document.writeln(count+" ký tự số là :" +result);
+</script>
+</body>
+</html>

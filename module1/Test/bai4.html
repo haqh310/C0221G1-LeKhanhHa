@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp điện thoại</title>
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="Thêm" onclick="themDienThoai()">
+<br>
+<p id="hienThi"></p>
+<script>
+    class DienThoai {
+        constructor(maDt, ten, hangSx, gia) {
+            this.maDt = maDt;
+            this.ten = ten;
+            this.hangsx = hangSx;
+            this.gia = gia;
+        }
+
+        getMaDt() {
+            return this.maDt;
+        }
+
+        setMaDt(maDt) {
+            this.maDt = maDt;
+        }
+
+        getTen() {
+            return this.ten;
+        }
+
+        setTen(ten) {
+            this.ten = ten;
+        }
+
+        getHangSX() {
+            return this.hangsx;
+        }
+
+        setHangSX(hangsx) {
+            this.hangsx = hangsx;
+        }
+
+        getGia() {
+            return this.gia;
+        }
+
+        setGia(gia) {
+            this.gia = gia;
+        }
+
+        toString() {
+            return "1." + this.maDt + " 2." + this.ten + " 3." + this.hangsx + " 4." + this.gia;
+        }
+    }
+
+    function hienThi(arr) {
+        sapXepDienThoai(arr);
+        let hienThi = "<table border='1' width='400'>\n" +
+            "    <tr>\n" +
+            "        <th>Mã ĐT</th>\n" +
+            "        <th>Tên</th>\n" +
+            "        <th>Hãng sản xuất</th>\n" +
+            "        <th>Giá</th>\n" +
+            "    </tr>";
+        for (let i = 0; i < arr.length; i++) {
+            hienThi += "<tr>\n" +
+                "       <td>" + arr[i].getMaDt() + "</td>\n" +
+                "       <td>" + arr[i].getTen() + "</td>\n" +
+                "       <td>" + arr[i].getHangSX() + "</td>\n" +
+                "       <td>" + arr[i].getGia() + "</td>\n" +
+                "    </tr>";
+        }
+        hienThi += "</table>";
+        document.getElementById("hienThi").innerHTML = hienThi;
+    }
+
+    function sapXepDienThoai(arr) {
+        for (let i = 0; i < arr.length; i++)
+            for (let j = 0; j < arr.length; j++) {
+                let check = arr[i].getTen() < arr[j].getTen();
+                if (check) {
+                    let tg = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tg;
+                }
+            }
+    }
+
+    function themDienThoai() {
+        let maDt = prompt("Nhập mã điện thoại:");
+        let ten = prompt("Nhập tên điện thoại:");
+        let hangSx = prompt("Nhập hãng sản xuất điện thoại:");
+        let gia = prompt("Nhập giá điện thoại:");
+        mangDienThoai.push(new DienThoai(maDt, ten, hangSx, gia));
+        hienThi(mangDienThoai);
+    }
+
+    let dienThoai1 = new DienThoai(1, "RedMi", "Xiaomi", 5000);
+    let dienThoai2 = new DienThoai(2, "Iphone 7", "Iphone", 10000);
+    let dienThoai3 = new DienThoai(3, "Oppo 4", "Oppo", 7000);
+    let mangDienThoai = [dienThoai1, dienThoai2, dienThoai3];
+    hienThi(mangDienThoai);
+</script>
+</body>

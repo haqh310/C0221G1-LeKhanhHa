@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp điện thoại</title>
+</head>
+<body>
+<script>
+    class Phone {
+        constructor(battery,status) {
+            this._battery = battery;
+            this._status = status;
+            this.toMessage="";
+            this.fromMessage="";
+
+        }
+        toMessage="";
+        get battery() {
+            return this._battery;
+        }
+
+        set battery(value) {
+            this._battery = value;
+        }
+
+        get status() {
+            return this._status;
+        }
+
+        set status(value) {
+            this._status = value;
+        }
+
+        checkStatus() {
+            return this._status;
+        }
+
+        turnOn() {
+            return this._status = true;
+        }
+
+        turnOff() {
+            return this._status = false;
+        }
+
+        chargeBattery() {
+            while (this._battery < 100) {
+                this._battery++;
+            }
+        }
+
+        textMessage(stringValue) {
+            if(this._status){
+                this.messaging = stringValue;
+                this._battery--;
+            }
+        }
+        getToMessage(string){
+            this.toMessage+=string;
+        }
+        sendMessage(phone) {
+            if(this._status){
+                this.fromMessage += this.messaging;
+                phone.getToMessage(this.messaging);
+                this.messaging = "";
+                this._battery--;
+            }
+        }
+
+        viewToMessage() {
+            alert(this.toMessage);
+            this._battery--;
+        }
+        viewFromMessage(){
+            alert(this.fromMessage);
+            this._battery--;
+        }
+    }
+
+    let nokia = new Phone(50,true);
+    let iphone = new Phone(60,true);
+    nokia.textMessage("Xin chào");
+    nokia.sendMessage(iphone);
+    iphone.viewToMessage();
+    //alert(iphone.toMessage)
+</script>
+</body>
+</html>

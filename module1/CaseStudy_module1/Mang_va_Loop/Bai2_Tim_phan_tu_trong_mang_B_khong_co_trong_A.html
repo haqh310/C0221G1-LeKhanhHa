@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm phần tử</title>
+</head>
+<body>
+<script>
+    let lengthArrayA = parseInt(prompt("Nhập chiều dài mảng A"));
+    while (true){
+        if(lengthArrayA>0){
+            break;
+        }
+        else {
+            lengthArrayA = parseInt(prompt("Bạn đã nhập sai. Vui lòng nhập lại"));
+        }
+    }
+    let arrayA = new Array(lengthArrayA);
+    for (let i = 0; i < lengthArrayA; i++) {
+        arrayA[i] = parseFloat(prompt("Nhập giá trị phần tử " + i));
+    }
+    let lengthArrayB = parseInt(prompt("Nhập chiều dài mảng B"));
+    while (true){
+        if(lengthArrayA>0){
+            break;
+        }
+        else {
+            lengthArrayA = parseInt(prompt("Bạn đã nhập sai. Vui lòng nhập lại"));
+        }
+    }
+    let arrayB = new Array(lengthArrayB);
+    for (let i = 0; i < lengthArrayB; i++) {
+        arrayB[i] = parseFloat(prompt("Nhập giá trị phần tử " + i));
+    }
+    arrayA.sort();
+    arrayB.sort();
+    let arrayC = new Array();
+    let count = 0;
+    for (let i = 0; i < arrayB.length; i++) {
+        let check = true;
+        for (let j = 0; j < arrayA.length; j++) {
+            if (arrayB[i] === arrayA[j]) {
+                check = false;
+                break;
+            }
+        }
+        if (check) {
+            arrayC[count] = arrayB[i];
+            count++;
+        }
+    }
+    document.write("Mảng A : " + arrayA);
+    document.write("<br>");
+    document.write("Mảng B : " + arrayB);
+    document.write("<br>");
+    document.write("missingValue(A, B) : " + arrayC);
+</script>
+</body>
+</html>

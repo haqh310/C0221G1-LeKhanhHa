@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote điều khiển Tivi</title>
+    <style>
+        input {
+            width: 100%;
+            color: white;
+            background: #7b807c;
+        }
+
+        .input {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<img src="images/tiviOff.png" id="tivi" style="margin-left: 200px">
+<br><br>
+<table border="1px" style="margin-left: 250px">
+    <tr>
+        <td><input class="input" type="button" value="OFF" onclick="turnOff()"></td>
+        <td><input class="input" type="button" value="ON" onclick="turnOn()"></td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <td><input type="button" value="VOL+" onclick="changeVol(1)"></td>
+        <td><input type="button" value="CH-3" onclick="changeTivi(3)"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="VOL-" onclick="changeVol(-1)"></td>
+        <td><input type="button" value="CH-7" onclick="changeTivi(7)"></td>
+    </tr>
+</table>
+<script>
+    class Remote {
+        constructor(tivi) {
+            this.tivi = tivi;
+        }
+
+        turnOn() {
+            this.tivi.turnOn();
+        }
+
+        turnOff() {
+            this.tivi.turnOff();
+        }
+
+        controlChannel(channel) {
+            if (this.tivi.status) {
+                this.tivi.channel = channel;
+                this.tivi.changeChannel();
+            }
+        }
+
+        controlSound(sound) {
+            if (this.tivi.status) {
+                this.tivi.changeSound(sound);
+            }
+        }
+    }
+
+    class TiVi {
+        constructor(channel, sound) {
+            this.status = false;
+            this.channel = channel;
+            this.sound = sound;
+        }
+
+        turnOn() {
+            this.status = true;
+            document.getElementById("tivi").src = "images/tiviOn" + this.channel + ".png";
+        }
+
+        turnOff() {
+            this.status = false;
+            document.getElementById("tivi").src = "images/tiviOff.png";
+        }
+
+        changeChannel() {
+            document.getElementById("tivi").src = "images/tiviOn" + this.channel + ".png";
+        }
+
+        changeSound(sound) {
+            this.sound += sound;
+            let result = "";
+            for (let j = 0; j < this.sound; j++) {
+                result += "-";
+            }
+            alert(result+this.sound);
+        }
+    }
+
+    let tiviLG = new TiVi(7, 20);
+    let remote = new Remote(tiviLG);
+
+    function turnOff() {
+        remote.turnOff();
+    }
+
+    function turnOn() {
+        remote.turnOn();
+    }
+
+    function changeTivi(i) {
+        remote.controlChannel(i);
+    }
+
+    function changeVol(num) {
+        remote.controlSound(num);
+    }
+
+    // tiviLG.turnOn();
+    // tiviLG.changeChannel(7);
+    // remote.controlChannel(3);
+    // remote.controlSound(2);
+    // tiviLG.turnOff();
+</script>
+</body>
+</html>

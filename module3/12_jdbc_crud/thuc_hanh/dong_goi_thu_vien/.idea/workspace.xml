@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="demo-packaging" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b0924e6e-e875-4663-8cd7-4f9baaa119dd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../demo-packaging.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../14_dependency_management_packaging/thuc_hanh/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../14_dependency_management_packaging/thuc_hanh/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../14_dependency_management_packaging/thuc_hanh/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../14_dependency_management_packaging/thuc_hanh/.idea/thuc_hanh.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../14_dependency_management_packaging/thuc_hanh/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/artifacts/case_study_jsp_servlet_war_exploded/WEB-INF/classes/controller/ServiceServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/artifacts/case_study_jsp_servlet_war_exploded/WEB-INF/classes/controller/ServiceServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/artifacts/case_study_jsp_servlet_war_exploded/WEB-INF/classes/model/repository/ServiceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/artifacts/case_study_jsp_servlet_war_exploded/WEB-INF/classes/model/repository/ServiceRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/artifacts/case_study_jsp_servlet_war_exploded/view/service/create_service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/artifacts/case_study_jsp_servlet_war_exploded/view/service/create_service.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/artifacts/case_study_jsp_servlet_war_exploded/view/service/edit_service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/artifacts/case_study_jsp_servlet_war_exploded/view/service/edit_service.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/production/case_study_jsp_servlet/controller/ServiceServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/production/case_study_jsp_servlet/controller/ServiceServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/production/case_study_jsp_servlet/model/repository/ServiceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/out/production/case_study_jsp_servlet/model/repository/ServiceRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/src/controller/ServiceServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/src/controller/ServiceServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/src/model/repository/ServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/src/model/repository/ServiceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/web/view/service/create_service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/web/view/service/create_service.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_jsp_servlet/web/view/service/edit_service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_jsp_servlet/web/view/service/edit_service.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\C0221G1-LeKhanhHa\module3\12_jdbc_crud\thuc_hanh\dong_goi_thu_vien\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1tQ6F1JFtmBmtLBkXx5EtjpBHZX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../14_dependency_management_packaging/thuc_hanh" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <module name="dong_goi_thu_vien" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0924e6e-e875-4663-8cd7-4f9baaa119dd" name="Default Changelist" comment="" />
+      <created>1622688858407</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622688858407</updated>
+      <workItem from="1622688866248" duration="1003000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="155" key="FileChooserDialogImpl" timestamp="1622689876536">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622689876536" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1622689835817">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622689835817" />
+    <state x="209" y="34" key="new project wizard" timestamp="1622688896609">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1622688896609" />
+  </component>
+</project>

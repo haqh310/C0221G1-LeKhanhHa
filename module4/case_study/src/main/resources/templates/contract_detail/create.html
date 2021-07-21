@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="layout :: head">
+    </th:block>
+    <meta charset="UTF-8">
+    <title>Create new Contract Detail</title>
+</head>
+<body>
+<div th:replace="home :: header"></div>
+<div class="row">
+    <div class="container d-flex justify-content-center">
+        <div class="col-6 d-flex flex-column">
+            <h1>Create new contract detail</h1>
+            <p>
+                <a th:href="@{/contract_details(id=${id})}">Back to menu</a>
+            </p>
+            <form action="/contract_details/create" method="post" class="container border border-dark mb-3 pt-3" th:object="${contractDetailDto}">
+                <div class="form-group">
+                    <label>Contract Id:</label>
+                    <input type="text" class="form-control"  th:value="${id}" id="contract" name="contract" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Attach Service:</label>
+                    <select  class="form-control" th:field="*{attachService}">
+                        <option th:each="attach : ${attachServices}" th:value="${attach.attachServiceId}" th:text="${attach.attachServiceName}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Quantity:</label>
+                    <input type="number" class="form-control" placeholder="Enter quantity... "  th:field="*{quantity}">
+                    <span style="color: red" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span>
+                </div>
+                <div class="d-flex justify-content-center ">
+                    <button type="submit" class="btn btn-primary mb-3">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="layout :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nối hai mảng</title>
+</head>
+<body>
+<script>
+    let arrayNumA = new Array(10);
+    for (let i = 0; i < 10; i++) {
+        arrayNumA[i] = parseInt(prompt("Nhập phần tử A[" + i + "] = "));
+    }
+    document.writeln(arrayNumA.join(" "));
+    document.writeln("<br>");
+    let arrayNumB = new Array(10);
+    for (let i = 0; i < 10; i++) {
+        arrayNumB[i] = parseInt(prompt("Nhập phần tử B[" + i + "] = "));
+    }
+    document.writeln(arrayNumB.join(" "));
+    document.writeln("<br>");
+    let arrayNumC = new Array(20);
+    arrayNumC = arrayNumC.concat(arrayNumA);
+    arrayNumC = arrayNumC.concat(arrayNumB);
+    document.writeln("Kết quả là : "+ arrayNumC.join(" "));
+</script>
+</body>
+</html>

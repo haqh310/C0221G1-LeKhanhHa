@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mảng</title>
+</head>
+<body>
+<script>
+    let lengthArray;
+    while (true){
+        lengthArray=parseInt(prompt("Nhập chiều dài mảng"));
+        if(lengthArray>0){
+            break
+        }else {
+            alert("Bạn đã nhập sai.Vui lòng nhập lại");
+        }
+    }
+    let arrayA=new Array(lengthArray);
+    for(let i=0;i<lengthArray;i++ ){
+        arrayA[i]=parseFloat(prompt("Nhập giá trị phần tử "+i));
+    }
+    let arrayB=new Array(lengthArray);
+    for(let i=0;i<lengthArray;i++){
+        arrayB[i]=0;
+        for(let j=0;j<i+1;j++){
+            arrayB[i]+=arrayA[j];
+        }
+    }
+    document.write(arrayB);
+</script>
+</body>
+</html>

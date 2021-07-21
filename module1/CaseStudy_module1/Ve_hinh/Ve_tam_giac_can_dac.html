@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chieuCao=parseInt(prompt("Nhập chiều cao:"));
+    let ketQua="";
+    for(let i=0;i<chieuCao;i++)
+    {
+        for(let j=0;j<chieuCao-i-1;j++){
+            ketQua+="  ";
+        }
+        for(let j=0;j<i*2+1;j++){
+            ketQua+="* ";
+        }
+        ketQua+="<br>";
+    }
+   document.write("<pre>"+ketQua+"</pre>")
+</script>
+</body>
+</html>

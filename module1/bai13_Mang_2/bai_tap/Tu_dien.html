@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+
+<input type="button" onclick="engToViet()" value="dịch">
+<span id="vietnam"></span>
+<script>
+    function engToViet(){
+        let arrayEng = ["yes", "no", "ok", "hi"];
+        let arrayViet = ["vâng", "không", "được", "xin chào"];
+        let stringInput = document.getElementById("english").value;
+        let local = arrayEng.indexOf(stringInput);
+        let check=false;
+        if (local !== -1) {
+            check=true;
+            //document.getElementById("vietnam").innerHTML = arrayViet[local];
+        }if(check){
+            document.getElementById("vietnam").innerHTML = arrayViet[local]
+        }
+        else {
+            alert(stringInput + " không có trong từ điển");
+        }
+    }
+</script>
+</body>
+</html>

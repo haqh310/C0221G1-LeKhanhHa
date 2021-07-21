@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="layout :: head">
+    </th:block>
+    <meta charset="UTF-8">
+    <title>Create new employee</title>
+</head>
+<body>
+<div th:replace="home :: header"></div>
+<div class="row">
+    <div class="container d-flex justify-content-center">
+        <div class="col-6 d-flex flex-column">
+            <h1>Create new employee</h1>
+            <p>
+                <a href="/employees">Back to menu</a>
+            </p>
+            <form action="/employees/create" method="post" class="container border border-dark mb-3 pt-3" th:object="${employeeDto}">
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter name... "  th:field="*{employeeName}">
+                </div>
+                <div class="form-group">
+                    <label>Birthday:</label>
+                    <input type="date" class="form-control" placeholder="Enter birthday" th:field="*{employeeBirthday}">
+                </div>
+                <div class="form-group">
+                    <label>ID Card: </label>
+                    <input type="number" class="form-control" placeholder="Enter id card... " th:field="*{employeeIdCard}">
+                    <span style="color: red" th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}"></span>
+                </div>
+                <div class="form-group">
+                    <label>Salary: </label>
+                    <input type="number" class="form-control" placeholder="Enter salary... " th:field="*{employeeSalary}">
+                    <span style="color: red" th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"></span>
+                </div>
+                <div class="form-group">
+                    <label>Phone: </label>
+                    <input type="number" class="form-control" placeholder="Enter phone number..." th:field="*{employeePhone}">
+                    <span style="color: red" th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input type="email" class="form-control" placeholder="Enter email..." th:field="*{employeeEmail}">
+                    <span style="color: red" th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"></span>
+                </div>
+                <div class="form-group">
+                    <label>Address: </label>
+                    <input type="text" class="form-control" placeholder="Enter address... " th:field="*{employeeAddress}">
+                </div>
+                <div class="form-group">
+                    <label>Position: </label>
+                    <select class="form-control" th:field="*{position}">
+                        <option th:each="position :${positions}" th:value="${position.positionId}" th:text="${position.positionName}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Education Degree: </label>
+                    <select class="form-control" th:field="*{educationDegree}">
+                        <option th:each="education :${educationDegrees}" th:value="${education.educationDegreeId}" th:text="${education.educationDegreeName}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Division: </label>
+                    <select class="form-control" th:field="*{division}">
+                        <option th:each="division :${divisions}" th:value="${division.divisionId}" th:text="${division.divisionName}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" class="form-control" placeholder="Enter username... "  th:field="*{user}">
+                </div>
+                <div class="d-flex justify-content-center ">
+                    <button type="submit" class="btn btn-primary mb-3">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="layout :: footer"></div>
+</body>
+</html>

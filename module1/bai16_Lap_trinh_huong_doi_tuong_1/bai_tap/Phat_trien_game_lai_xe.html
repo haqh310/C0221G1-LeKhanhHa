@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game lái xe</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1000px" height="500px" style="border: 1px solid saddlebrown"></canvas>
+<script>
+
+    function MyCar() {
+        this.xPosition = 40;
+        this.yPosition = 40;
+        this.speed = 20;
+        this.canvas = document.getElementById('myCanvas');
+        this.check=[];
+        this.creatCar = function () {
+            let context = this.canvas.getContext('2d');
+            let imageObj = new Image();
+            let xPosition = this.xPosition;
+            let yPosition = this.yPosition;
+            imageObj.onload = function(){
+                context.drawImage(imageObj, xPosition, yPosition);
+            };
+            imageObj.src = 'images/car.png';
+        };
+        this.clearImage= function () {
+            let context = this.canvas.getContext('2d');
+            context.clearRect(0,0,1000,500);
+        };
+        this.creatMoney =function () {
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+            let imageObj = new Image();
+            let xPosition = Math.floor(Math.random()*1000);
+            let yPosition = Math.floor(Math.random()*500);
+            imageObj.onload = function(){
+                context.drawImage(imageObj, xPosition, yPosition);
+                console.log(imageObj.style.left)
+            };
+            imageObj.src = 'images/money.png';
+            this.check.push(xPosition,yPosition);
+        };
+        this.moveRight = function(){
+            this.xPosition += this.speed;
+        };
+        this.moveLeft= function () {
+            this.xPosition -= this.speed;
+        };
+        this.moveUp= function () {
+            this.yPosition -= this.speed;
+        };
+        this.moveDown= function () {
+            this.yPosition += this.speed;
+        };
+
+    }
+    document.addEventListener('keydown', moveCar);
+     function  moveCar(event){
+         car.clearImage();
+        switch (event.code) {
+            case "ArrowLeft" :
+                car.moveLeft();
+                break;
+            case "ArrowRight" :
+                car.moveRight();
+                break;
+            case "ArrowUp":
+                car.moveUp();
+                break;
+            case "ArrowDown":
+                car.moveDown();
+                break;
+        }
+        car.creatCar();
+    }
+   let car = new MyCar();
+    car.creatCar();
+    car.creatMoney();
+</script>
+</body>
+</html>

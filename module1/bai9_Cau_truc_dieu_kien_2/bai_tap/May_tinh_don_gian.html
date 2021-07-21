@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+    <style>
+        table
+        {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        input
+        {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<form>
+
+    <table>
+        <tr>
+            <td colspan="4"> <input style="width: 96%;text-align: right" type="text" id="input"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="(" ></td>
+            <td><input type="button" value=")" ></td>
+            <td><input type="button" value="%" ></td>
+            <td><input type="button" value="AC" ></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" ></td>
+            <td><input type="button" value="8" ></td>
+            <td><input type="button" value="9" ></td>
+            <td><input type="button" value="/" ></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" ></td>
+            <td><input type="button" value="5" ></td>
+            <td><input type="button" value="6" ></td>
+            <td><input type="button" value="*" ></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="3" ></td>
+            <td><input type="button" value="2" ></td>
+            <td><input type="button" value="1" ></td>
+            <td><input type="button" value="-" ></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" ></td>
+            <td><input type="button" value="." ></td>
+            <td><input type="button" value="=" ></td>
+            <td><input type="button" value="+" ></td>
+        </tr>
+    </table>
+</form>
+<script>
+    let count = 0;
+    let listbutton = document.querySelectorAll('input[type="button"]');
+    let ketQua="";
+    for(let i=0;i<listbutton.length;i++){
+        listbutton[i].onclick = function (e) {
+            switch (e.target.value) {
+                case "=":
+                    ketQua=eval(ketQua);
+                    break;
+                case "AC":
+                    ketQua="";
+                    break;
+                default :
+                    ketQua += e.target.value;
+            }
+            console.log(ketQua);
+            document.getElementById("input").value=ketQua;
+        }
+    }
+</script>
+</body>
+</html>

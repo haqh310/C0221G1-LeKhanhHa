@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chieuDai = parseInt(prompt("Nhập chiều dài :"));
+    let chieuRong = parseInt(prompt("Nhập chiều rộng :"));
+    let ketQua = "";
+    for (let i = 0; i < chieuRong; i++) {
+        for (let j = 0; j < chieuDai; j++) {
+            if (i === 0 || i === chieuRong - 1 || j === 0 || j === chieuDai - 1) {
+                ketQua += "* ";
+            } else {
+                ketQua += "  ";
+            }
+        }
+        ketQua += "<br>";
+    }
+    document.write("<pre>" + ketQua + "</pre>");
+</script>
+</body>
+</html>

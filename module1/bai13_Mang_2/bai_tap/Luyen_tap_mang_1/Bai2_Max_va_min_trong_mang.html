@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Max và Min</title>
+</head>
+<body>
+<script>
+    let arrayNum = new Array(10);
+    for(let i=0;i<10;i++){
+        arrayNum[i]=Math.floor(Math.random()*100);;
+    }
+    let max=arrayNum[0];
+    let min=arrayNum[0];
+    for(let i=1;i<10;i++){
+       if(max<arrayNum[i]){
+           max=arrayNum[i];
+       }
+        if(min>arrayNum[i]){
+            min=arrayNum[i];
+        }
+    }
+    document.writeln(arrayNum.join(" "));
+    document.writeln("<br>");
+    document.writeln("Số lớn nhất  là :" +max);
+    document.writeln("<br>");
+    document.writeln("Số nhỏ nhất là :" +min);
+</script>
+</body>
+</html>

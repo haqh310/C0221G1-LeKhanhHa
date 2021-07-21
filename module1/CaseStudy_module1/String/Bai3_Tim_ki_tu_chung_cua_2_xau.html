@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm kí tự chung</title>
+</head>
+<body>
+<script>
+    let char1 = prompt("Nhập xâu kí tự 1:");
+    let char2 = prompt("Nhập xâu kí tự 2:");
+    document.writeln("xâu " + char1 + " và xâu " + char2 + " có kí tự chung là : <br>");
+    let char = char1 + char2;
+    let arrayChar = countChar(char);
+    for (let i = 0; i < arrayChar.length; i++) {
+        let numChar1 = numChar(char1, arrayChar[i]);
+        let numChar2 = numChar(char2, arrayChar[i]);
+        let count = 0;
+        if (numChar1 > 0 && numChar2 > 0) {
+            if (numChar1 > numChar2) {
+                count = numChar2;
+            } else {
+                count = numChar1;
+            }
+            document.writeln(count + " kí tự " + arrayChar[i] + "<br>");
+        }
+    }
+
+    function numChar(stringValue, charValue) {
+        let num = 0;
+        for (let i = 0; i < stringValue.length; i++) {
+            if (charValue === stringValue[i]) {
+                num++;
+            }
+        }
+        return num;
+    }
+
+    function countChar(stringValue) {
+        let stringChar = new Array();
+        let count = 0;
+        for (let i = 0; i < stringValue.length; i++) {
+            let kiemTra = true;
+            for (let j = i + 1; j < stringValue.length; j++) {
+                if (stringValue[i] === stringValue[j]) {
+                    kiemTra = false;
+                    break;
+                }
+            }
+            if (kiemTra) {
+                stringChar[count] = stringValue[i];
+                count++;
+            }
+        }
+        return stringChar;
+    }
+</script>
+</body>
+</html>

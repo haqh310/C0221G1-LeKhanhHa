@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sinh bảng cửu chương</title>
+</head>
+<body>
+<script>
+    let count="<table border='1'  cellspacing='0' cellpadding='3' style='width: 60%;font-size: 18px' >";
+    for(let i=1;i<=10;i++){
+        count+="<tr>";
+        for (let j=2;j<=10;j++){
+            count+="<td>"+j+"x"+i+"="+j*i+"</td>";
+        }
+        count+="</tr>";
+    }
+    count+="</table>";
+    document.write(count);
+</script>
+</body>
+</html>

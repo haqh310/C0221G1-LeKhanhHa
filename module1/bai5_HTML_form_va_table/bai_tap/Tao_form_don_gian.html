@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tao Form</title>
+    <style type="text/css">
+        h2{
+            background: red;
+            color: white;
+            text-align: center;
+        }
+        .box{
+           box-shadow: -1.5px -1.5px grey;
+            height: 20px;
+        }
+        form{
+            color: blue;
+            font-size: 20px;
+        }
+        div{
+
+            color: burlywood;
+            text-align: left ;
+            flex-wrap: wrap-reverse ;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<h2 >SO THICH CUA BAN</h2>
+<form >
+    <table >
+        <tr>
+            <td>Họ và tên</td>
+            <td><input type="text" name="yourname" class="box" style="width: 200px" ><br><br></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" class="box" width="150" style="width: 150px"></td>
+        </tr>
+    </table>
+    <table style="color: burlywood">
+        <tr>
+            <td rowspan="4" style="color: blue">Sở thích</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="hobby">Thể thao</td>
+            <td><input type="checkbox" name="hobby">Âm nhạc</td>
+            <td><input type="checkbox" name="hobby">Đọc sách</td>
+
+        </tr>
+        <tr>
+            <td> <input type="checkbox" name="hobby">Lướt web</td>
+            <td><input type="checkbox" name="hobby">Chơi game</td>
+            <td><input type="checkbox" name="hobby">Điện ảnh</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="hobby">Du lịch</td>
+        </tr>
+    </table>
+
+    <br>
+    <input type="submit" style="height: 25px; box-shadow: 2px 2px grey;" value="Gửi thông tin"  >
+    <input type="reset" style="height: 25px; box-shadow: 2px 2px grey;" value="Nhập lại">
+</form>
+<br><br>
+<form style="width: 400px;background: burlywood; ">
+    <h2 style="font-size: 18px;background: cornflowerblue;margin: 15px 15px 15px 15px">Đăng ký học viên</h2>
+    <table>
+        <tr>
+            <td width="100">Họ và tên</td>
+            <td><input type="text" name="yourname" class="box" style="width: 200px" ></td>
+        </tr>
+        <tr>
+            <td>Ngày sinh</td>
+            <td><input type="text" name="date" class="box"></td>
+        </tr>
+        <tr style="alignment: left">
+            <td><label>Giới tính</label></td>
+            <td style="color: black"><input type="radio" name="gender" value="nam" >Nam<input type="radio" name="gender" value="nu">Nữ</td>
+        </tr>
+        <tr>
+            <td>Địa chỉ</td>
+            <td><textarea rows="5" cols="30" name="dress"></textarea></td>
+        </tr>
+        <tr>
+            <td>Lớp</td>
+            <td><select name="class">
+                <option value="">--Chon lớp--</option>
+            </select><br></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="mail" class="box"></td>
+        </tr>
+        <tr>
+            <td>Điện thoại</td>
+            <td><input type="text" name="phone" class="box"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <input type="submit" style="height: 25px; box-shadow: 2px 2px grey;" value="Đăng ký">
+                <input type="reset" style="height: 25px; box-shadow: 2px 2px grey;" value="Nhập lại">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

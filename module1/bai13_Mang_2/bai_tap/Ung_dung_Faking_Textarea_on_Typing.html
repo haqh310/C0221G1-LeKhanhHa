@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking Textarea on Typing</title>
+</head>
+<body>
+<h3>Type anthing slowly</h3>
+<textarea id="text" onkeydown="inputKey()" style="width: 200px"></textarea>
+<script>
+    let textValue ="TÔI LÀ MỘT ĐỨA NGỐC!!";
+    let inputText="";
+    let i=1;
+    function inputKey() {
+        let textareaValue= document.getElementById("text").value;
+        inputText=textValue.substring(0,textareaValue.length);
+        if(textareaValue.length===textValue.length+1){
+            inputText="";
+          }
+        // if(textareaValue.length>0){
+        //    for(let i=0;i<textareaValue.length;i++){
+        //        inputText+=textValue[i];
+        //    }
+        //     if(textareaValue.length===textValue.length){
+        //         inputText="";
+        //         document.getElementById("text").value="";
+        //     }
+        // }
+        document.getElementById("text").value=inputText;
+        inputText="";
+        setTimeout("inputKey()", 1);
+    }
+</script>
+</body>
+</html>

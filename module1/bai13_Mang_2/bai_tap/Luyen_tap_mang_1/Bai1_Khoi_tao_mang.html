@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Khởi tạo mảng 10 phần tử</title>
+</head>
+<body>
+<script>
+    let arrayNum = new Array(10);
+    let result="";
+    for(let i=0;i<10;i++){
+        arrayNum[i]=Math.floor(Math.random()*100);
+        if(arrayNum[i]>=10){
+            result+=arrayNum[i] +" ";
+        }
+    }
+    document.writeln(arrayNum.join(" "));
+    document.writeln("<br>");
+    document.writeln("Số nguyên lớn hơn hoặc bằng 10 là :" +result);
+</script>
+</body>
+</html>

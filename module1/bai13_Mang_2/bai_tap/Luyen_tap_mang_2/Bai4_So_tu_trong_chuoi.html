@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số từ</title>
+</head>
+<body>
+<script>
+    let stringObj = prompt("Nhập chuỗi :");
+    document.writeln(stringObj);
+    let arrayString = stringObj.trim().split(" ");
+   let count =0;
+   for(let i=0;i<arrayString.length;i++){
+       if(arrayString[i].length>0){
+           count++;
+       }
+   }
+   document.writeln("Số từ là "+count);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lãi ngân hàng</title>
+</head>
+<body>
+<script>
+        let tienVay=parseFloat(prompt("Nhập số tiền vay:"));
+        let month=parseFloat(prompt("Nhập số tháng vay:"));
+        let laiSuat=parseFloat(prompt("Nhập lãi suất:(%  )"));
+        if(tienVay>0&&month>0&&laiSuat>0){
+            for(let i=0;i<month ;i++){
+                tienVay+=tienVay*laiSuat/100;
+            }
+            alert("Số tiền phải trả : "+tienVay);
+        }
+        else {
+            alert("Bạn đã nhập sai");
+        }
+</script>
+</body>
+</html>

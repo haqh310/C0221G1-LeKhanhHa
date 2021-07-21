@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp Temperature</title>
+</head>
+<body>
+<script>
+    function Temperature(doC) {
+        this.doC = doC;
+        this.doF = function () {
+            return 9 / 5 * doC + 32;
+        }
+        this.doK = function () {
+            return doC + 273;
+        }
+    }
+
+    let temperature = new Temperature(25);
+    alert("Độ F: " + temperature.doF() + " Độ K: " + temperature.doK());
+</script>
+</body>
+</html>

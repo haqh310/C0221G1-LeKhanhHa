@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuẩn hóa xâu</title>
+</head>
+<body>
+<script>
+    let stringValue = prompt("Nhập vào môt chuỗi");
+    stringValue = stringValue.toLowerCase();
+    let arrString = stringValue.split(' ');
+    let result="";
+    for(let i=0;i<arrString.length;i++){
+        if(arrString[i]){
+            let stringUpper=arrString[i][0].toUpperCase();
+            result+=stringUpper + arrString[i].slice(1)+" ";
+        }
+    }
+    alert(result)
+</script>
+</body>
+</html>

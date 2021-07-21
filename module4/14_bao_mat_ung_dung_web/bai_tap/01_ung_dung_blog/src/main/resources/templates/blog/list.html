@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>List blog</title>
+</head>
+<body>
+<h3>
+    <div sec:authorize="isAuthenticated()" >
+        Welcome ! <span sec:authentication="principal.username"></span>
+        <a th:href="@{/logout}">
+            <button>Logout</button>
+        </a>
+    </div>
+</h3>
+<div sec:authorize="isAnonymous()">
+     <a th:href="@{/login}">
+    <button>Login</button>
+</a>
+</div>
+<a href="/blog/create">Create new blog</a>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<h2>List Blog</h2>
+<form>
+    Search by first name:
+    <input name="search" type="text" />
+    <input type="submit" value="Search"/>
+</form>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>#</td>
+            <td>Title</td>
+            <td>Content</td>
+            <td>Category</td>
+            <td>Date</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="blog,status : ${blogs}">
+            <td th:text="${status.count}"></td>
+            <td><a th:href="@{/blog/view(id=${blog.id})}" th:text="${blog.title}" style="font-weight: bold"></a></td>
+            <td th:text="${#strings.substring(blog.content,0,5)+'...'}"></td>
+            <td th:if="${blog.category}" th:text="${blog.category.name}"></td>
+            <td th:unless="${blog.category}"></td>
+            <td th:text="${blog.date}"></td>
+            <td><a th:href="@{/blog/edit(id=${blog.id})}">Edit</a></td>
+            <td><a th:href="@{/blog/delete(id=${blog.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <a th:href="@{/(page=${blogs.number - 1},search=${search})}" th:if="${blogs.hasPrevious()}">Previous</a>
+    <span th:text="${blogs.number+1}"></span>/<span th:text="${blogs.totalPages}"></span>
+    <a th:href="@{/(page=${blogs.number + 1},search=${search})}" th:if="${blogs.hasNext()}">Next</a>
+</div>
+</body>
+</html>

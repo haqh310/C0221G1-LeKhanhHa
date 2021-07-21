@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List Blog</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function searchBlog() {
+            let search = $('#search').val();
+            $('page').val(0);
+            $.ajax({
+                type: "GET",
+                url: `/api/blogs/?search=${search}`,
+                success: function (data) {
+                    tableBlog(data.content)
+                }
+            });
+            event.preventDefault();
+        }
+        function tableBlog(blogs){
+            let content = " <tr>\n" +
+                "            <td>#</td>\n" +
+                "            <td>Title</td>\n" +
+                "            <td>Content</td>\n" +
+                "            <td>Category</td>\n" +
+                "            <td>Date</td>\n" +
+                "            <td>Edit</td>\n" +
+                "            <td>Delete</td>\n" +
+                "        </tr>";
+            for (let i = 0; i < blogs.length; i++) {
+                content += getBlog(blogs[i], i + 1);
+            }
+           $('#tableBlog').html(content);
+        }
+        function getBlog(blog, status) {
+            return ` <tr>` +
+                `<td>${status}</td>` +
+                `<th><a href="/blogs/view?id=${blog.id}">${blog.title}</a></th>` +
+                `<td>${blog.content}</td>` +
+                `<td>${blog.category.name}</td>` +
+                `<td>${blog.date}</td>` +
+                `<td><a href="/blogs/edit?id=${blog.id}">Edit</a></td>` +
+                `<td><a href="/blogs/delete?id=${blog.id}">Delete</a></td>` +
+                `</tr>`;
+        }
+        $(document).ready(function (){
+            $.ajax({
+                type: "GET",
+                url: `/api/blogs`,
+                success: function (data){
+                    let list = data.content;
+                  tableBlog(list);
+                }
+            });
+            $('#btnNext').click(function (){
+                let search = $('#search').val();
+                let page= parseInt($('#page').val())+1;
+                $('#page').val(page);
+                $.ajax({
+                    type:"GET",
+                    url:`/api/blogs?page=${page}&search=${search}`,
+                    success:function (data){
+                        tableBlog(data.content)
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<a href="/blog/create">Create new blog</a>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<h2>List Blog</h2>
+<form >
+    Search by title:
+    <input id="search" type="text" placeholder="Search..."/>
+    <input type="submit" value="Search" onclick="searchBlog()"/>
+</form>
+<div>
+
+</div>
+<div>
+    <table id="tableBlog" border="1">
+    </table><br>
+    <button id="btnNext">Xem thêm</button>
+    <input type="hidden" value="0" id="page">
+</div>
+
+</body>
+</html>

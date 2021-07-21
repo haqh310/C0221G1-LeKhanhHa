@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển kiểu chữ</title>
+</head>
+<body>
+<script>
+    let stringValue =prompt("Nhập chuỗi :");
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    let result = [];
+    for(let i=0;i<stringValue.length;i++){
+        if(UPPER.indexOf(stringValue[i])!==-1){
+            result.push(stringValue[i].toLocaleLowerCase());
+        }
+        else if(LOWER.indexOf(stringValue[i])!==-1){
+            result.push(stringValue[i].toLocaleUpperCase());
+        }
+        else {
+            result.push(stringValue[i]);
+        }
+    }
+    document.writeln(result.join(""));
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="layout :: head">
+    </th:block>
+    <meta charset="UTF-8">
+    <title>List Service</title>
+</head>
+<body>
+<div th:replace="home :: header"></div>
+<div class="container-fluid border pt-5 mt-5">
+    <h1>List Service</h1>
+    <p><a href="/">Back to menu</a></p>
+    <div class="row">
+        <div class="col-6">
+            <p><a href="/services/create">Create new service</a></p>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <form>
+                <input type="text" name="keyWord" placeholder="Enter name...">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+    <p style="color: red" th:text="${msg}"></p>
+    <table id="tableService" class="table table-bordered table-striped ">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Area</th>
+            <th>Cost</th>
+            <th>Max People</th>
+            <th>Standard Room</th>
+            <th>Description</th>
+            <th>Pool Area</th>
+            <th>Floors</th>
+            <th>Rent Type</th>
+            <th>Service Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="service, status : ${services}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${service.serviceCode}"></td>
+            <td th:text="${service.serviceName}"></td>
+            <td th:text="${service.serviceArea}"></td>
+            <td th:text="${service.serviceCost}"></td>
+            <td th:text="${service.serviceMaxPeople}"></td>
+            <td th:text="${service.standardRoom}"></td>
+            <td th:text="${service.descriptionOtherConvenience}"></td>
+            <td th:text="${service.poolArea}"></td>
+            <td th:text="${service.numberOfFloors}"></td>
+            <td th:text="${service.rentType.rentTypeName}"></td>
+            <td th:text="${service.serviceType.serviceTypeName}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <a th:href="@{/services(page=${services.number - 1},keyWord=${keyWord})}" th:if="${services.hasPrevious()}">Previous</a>
+    <span th:text="${services.number+1}"></span>/<span th:text="${services.totalPages}"></span>
+    <a th:href="@{/services(page=${services.number + 1},keyWord=${keyWord})}" th:if="${services.hasNext()}">Next</a>
+</div>
+<div th:replace="layout :: footer"></div>
+</body>
+</html>

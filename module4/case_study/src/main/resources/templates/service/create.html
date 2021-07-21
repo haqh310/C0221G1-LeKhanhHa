@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="layout :: head">
+    </th:block>
+    <meta charset="UTF-8">
+    <title>Create new service</title>
+</head>
+<body>
+<div th:replace="home :: header"></div>
+<div class="row">
+    <div class="container d-flex justify-content-center">
+        <div class="col-6 d-flex flex-column">
+            <h1>Create new service</h1>
+            <p>
+                <a href="/services">Back to menu</a>
+            </p>
+            <form action="/services/create" method="post" class="container border border-dark mb-3 pt-3" th:object="${serviceDto}">
+                <div class="form-group">
+                    <label>Code:</label>
+                    <input type="text" class="form-control" placeholder="Enter code... "  th:field="*{serviceCode}">
+                    <span style="color: red" th:if="${#fields.hasErrors('serviceCode')}" th:errors="*{serviceCode}"></span>
+                </div>
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter name... "  th:field="*{serviceName}">
+                </div>
+                <div class="form-group">
+                    <label>Area:</label>
+                    <input type="number" class="form-control" placeholder="Enter area..." th:field="*{serviceArea}">
+                    <span style="color: red" th:if="${#fields.hasErrors('serviceArea')}" th:errors="*{serviceArea}"></span>
+                </div>
+                <div class="form-group">
+                    <label>Cost: </label>
+                    <input type="number" class="form-control" placeholder="Enter cost... " th:field="*{serviceCost}">
+                    <span style="color: red" th:if="${#fields.hasErrors('serviceCost')}" th:errors="*{serviceCost}"></span>
+                </div>
+                <div class="form-group">
+                    <label>Max People: </label>
+                    <input type="number" class="form-control" placeholder="Enter people... " th:field="*{serviceMaxPeople}">
+                    <span style="color: red" th:if="${#fields.hasErrors('serviceMaxPeople')}" th:errors="*{serviceMaxPeople}"></span>
+                </div>
+                <div class="form-group">
+                    <label>Rent Type: </label>
+                    <select class="form-control" th:field="*{rentType}">
+                        <option th:each="rentType :${rentTypes}" th:value="${rentType.rentTypeId}" th:text="${rentType.rentTypeName}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Service Type: </label>
+                    <select id="service_type_id" class="form-control" th:field="*{serviceType}" th:onchange="changeService()">
+                        <option th:each="serviceType :${serviceTypes}" th:value="${serviceType.serviceTypeId}" th:text="${serviceType.serviceTypeName}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" id="standard_room">
+                    <label>Standard Room: </label>
+                    <input id="input_standard_room" type="text" class="form-control" placeholder="Enter standard room..." th:field="*{standardRoom}">
+                </div>
+                <div class="form-group" id="description_other_convenience">
+                    <label>Description Other Convenience: </label>
+                    <input id="input_description_other_convenience" type="text" class="form-control" placeholder="Enter description..." th:field="*{descriptionOtherConvenience}">
+                </div>
+                <div class="form-group" id="pool_area">
+                    <label>Pool Area: </label>
+                    <input id="input_pool_area" type="number" class="form-control" placeholder="Enter pool area... " th:field="*{poolArea}">
+                </div>
+                <div class="form-group" id="number_of_floors">
+                    <label>Number Of Floors: </label>
+                    <input id="input_number_of_floors" type="number" class="form-control" placeholder="Enter number of floors... " th:field="*{numberOfFloors}">
+                    <span style="color: red" th:if="${#fields.hasErrors('numberOfFloors')}" th:errors="*{numberOfFloors}"></span>
+                </div>
+                <div class="d-flex justify-content-center ">
+                    <button type="submit" class="btn btn-primary mb-3">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="layout :: footer"></div>
+<script>
+    $(document).ready(function (){
+        changeService();
+    })
+    function changeService() {
+        setDisplay1();
+        let id = document.getElementById("service_type_id").value;
+        if (id == 2) {
+            setDisplay2();
+        } else if (id == 3) {
+           setDisplay3();
+        }
+    }
+    function setDisplay3(){
+        document.getElementById("standard_room").style.display = "none";
+        document.getElementById("description_other_convenience").style.display = "none";
+        document.getElementById("pool_area").style.display = "none";
+        document.getElementById("number_of_floors").style.display = "none";
+        document.getElementById("input_standard_room").disabled = true;
+        document.getElementById("input_description_other_convenience").disabled = true;
+        document.getElementById("input_pool_area").disabled = true;
+        document.getElementById("input_number_of_floors").disabled = true;
+    }
+    function setDisplay2(){
+        document.getElementById("pool_area").style.display = "none";
+        document.getElementById("input_pool_area").value = null;
+    }
+    function setDisplay1() {
+        document.getElementById("standard_room").style.display = "block";
+        document.getElementById("description_other_convenience").style.display = "block";
+        document.getElementById("pool_area").style.display = "block";
+        document.getElementById("number_of_floors").style.display = "block";
+        document.getElementById("input_standard_room").disabled = false;
+        document.getElementById("input_description_other_convenience").disabled = false;
+        document.getElementById("input_pool_area").disabled = false;
+        document.getElementById("input_number_of_floors").disabled = false;
+    }
+</script>
+</body>
+</html>

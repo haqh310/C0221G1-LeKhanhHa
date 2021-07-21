@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc switch case</title>
+</head>
+<body>
+<script>
+    let browser=prompt("nhập tên Browser đang dùng:");
+    switch (browser) {
+        case 'Edge':
+            alert("You've got the Edge!");
+            break;
+        case 'Chrome':
+        case 'Firefox':
+        case 'Safari':
+        case 'Opera':
+            alert('Okay we support these browsers too');
+            break;
+        default:
+            alert('We hope that this page looks ok!');
+    }
+    let a = prompt("a?:");
+    switch (a) {
+        case 0:
+            alert(0);
+            break;
+        case 1:
+            alert(1);
+            break;
+        case 3:
+            alert('2,3');
+            break;
+    }
+    let value = prompt("Type a number");
+    switch (value) {
+        case 0:
+            alert("Bằng không");
+            break;
+        default :
+            if(value>0)
+                alert("Lớn hơn 0");
+            else
+                alert("Bé hơn 0");
+    }
+</script>
+</body>
+</html>

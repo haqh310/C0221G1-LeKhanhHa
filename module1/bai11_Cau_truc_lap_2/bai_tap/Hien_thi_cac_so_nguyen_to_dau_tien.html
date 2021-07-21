@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị số nguyên tố đầu tiên</title>
+</head>
+<body>
+<script>
+    let count=0;
+    let N=2;
+    let sount="";
+    while (count<20){
+        let ktra=true;
+        for(let i=2;i<N;i++){
+            if(N%i===0){
+                ktra=false;
+                break;
+            }
+        }
+        if(ktra){
+            sount+=N+"<br>";
+            count++;
+        }
+        N++;
+    }
+    document.write(sount);
+</script>
+</body>
+</html>

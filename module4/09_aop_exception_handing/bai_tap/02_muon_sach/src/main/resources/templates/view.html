@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book information</title>
+</head>
+<body>
+<h3>Book information</h3>
+<form action="/book/pay" method="post">
+    <input type="hidden" name="book_id" th:value="${book.id}">
+    <input type="text" name="id">
+    <input type="submit" value="Pay">
+</form>
+<table>
+    <tr>
+        <td>Id:</td>
+        <td th:text="${book.id}"></td>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td th:text="${book.name}"></td>
+    </tr>
+    <tr>
+        <td>Count:</td>
+        <td th:text="${book.count}"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+          <a th:href="@{/book/borrow(book_id=${book.id})}">Borrow</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

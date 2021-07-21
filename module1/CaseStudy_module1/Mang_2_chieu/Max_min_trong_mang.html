@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Max và Min trong mảng</title>
+</head>
+<body>
+<script>
+    let m=parseInt(prompt("Nhập giá trị m"));
+    let n=parseInt(prompt("Nhập giá trị n"));
+    let arrayNum=new Array(m);
+    for(let i=0;i<m;i++){
+        arrayNum[i] = new Array(n);
+        for(let j=0;j<n;j++){
+            arrayNum[i][j]=parseInt(prompt("Nhập phần tử ["+i+"]["+j+"]"));
+        }
+    }
+    let max=arrayNum[0][0];
+    let min=arrayNum[0][0];
+    for(let i=0;i<m;i++){
+        for(let j=0;j<n;j++){
+            if(max<arrayNum[i][j]){
+                max=arrayNum[i][j];
+            }
+            if(min>arrayNum[i][j]){
+                min=arrayNum[i][j];
+            }
+            document.writeln(arrayNum[i][j]);
+        }
+        document.writeln("<br>");
+    }
+    document.writeln("Giá trị lớn nhất: "+ max+"; giá trị nhỏ nhất: "+min);
+</script>
+</body>
+</html>

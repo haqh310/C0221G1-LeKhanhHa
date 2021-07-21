@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mảng số nguyên</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = prompt("Nhập số phần tử của mảng");
+        let kt = n > 0 && n <= 20 && !isNaN(n);
+        if (kt) {
+            break;
+        }
+    } while (true);
+    let mangSo = [];
+    let ketQua = 0;
+    for (let i = 0; i < n; i++) {
+        mangSo[i] = parseInt(prompt("Nhập phần tử thứ " + i));
+        let kiemTra = mangSo[i] % 2 === 0;
+        if (kiemTra) {
+            ketQua += mangSo[i];
+        } else {
+            ketQua -= mangSo[i];
+        }
+    }
+    document.writeln("Các phần tử của mảng là: " + mangSo );
+    document.writeln("<br>")
+    document.writeln("Kết quả: " + ketQua);
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược phần tử</title>
+</head>
+<body>
+<script>
+    let arrayNum = new Array(10);
+    for(let i=0;i<10;i++){
+        arrayNum[i]=Math.floor(Math.random()*100);
+    }
+    document.writeln(arrayNum.join(" "));
+    document.writeln("<br>");
+    document.writeln(arrayNum.reverse().join(" "));
+</script>
+</body>
+</html>

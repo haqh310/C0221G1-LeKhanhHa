@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 2</title>
+</head>
+<body>
+<h3>Bài 1 : Chuyển độ C sang độ F</h3>
+<input id="doC" type="number" placeholder="Nhập độ C">
+<input type="button" onclick="chuyenNhietDo()" value="Kết Quả">
+<span id="ketQua1" ></span>
+<br><br>
+<h3>Bài 2 : Chuyển mét C sang feet</h3>
+<input id="valueM" type="number" placeholder="Nhập chiều dài m">
+<input type="button" onclick="chuyenDoDai()" value="Kết Quả">
+<span id="ketQua2" ></span>
+<br><br>
+<h3>Bài 3 : Tính diện tích hình vuông</h3>
+<input id="canhVuong" type="number" placeholder="Nhập cạnh a">
+<input type="button" onclick="dienTichHinhVuong()" value="Kết Quả">
+<span id="ketQua3" ></span>
+<br><br>
+<h3>Bài 4 : Tính diện tích hình chữ nhật</h3>
+<input id="chieuDai" type="number" placeholder="Nhập chiều dài">
+<input id="chieuRong" type="number" placeholder="Nhập chiều rộng">
+<input type="button" onclick="dienTichHinhChuNhat()" value="Kết Quả">
+<span id="ketQua4" ></span>
+<br><br>
+<h3>Bài 5 : Tính diện tích tam giac vuong</h3>
+<input id="canh1" type="number" placeholder="Nhập cạnh thứ nhất">
+<input id="canh2" type="number" placeholder="Nhập cạnh thứ hai">
+<input type="button" onclick="dienTichtamGiacVuong()" value="Kết Quả">
+<span id="ketQua5" ></span>
+<br><br>
+<h3>Bài 6 : Giải phương trình bậc 1 : (ax+b=0)</h3>
+<input id="valueA" type="number" placeholder="Nhập giá trị a">
+<input id="valueB" type="number" placeholder="Nhập giá trị b">
+<input type="button" onclick="phuongTrinhBac1()" value="Kết Quả">
+<span id="ketQua6" ></span>
+<br><br>
+<h3>Bài 7 : Giải phương trình bậc 2 : (ax2+bx+c=0)</h3>
+<input id="valueA1" type="number" placeholder="Nhập giá trị a">
+<input id="valueB1" type="number" placeholder="Nhập giá trị b">
+<input id="valueC1" type="number" placeholder="Nhập giá trị c">
+<input type="button" onclick="phuongTrinhBac2()" value="Kết Quả">
+<span id="ketQua7" ></span>
+<br><br>
+<h3>Bài 8 :Kiểm tra tuổi</h3>
+<input id="age" type="number" placeholder="Nhập tuổi">
+<input type="button" onclick="kiemTraTuoi()" value="Kết Quả">
+<span id="ketQua8" ></span>
+<br><br>
+<h3>Bài 9 : Kiểm tra ba cạnh tam giác</h3>
+<input id="canhA" type="number" placeholder="Nhập cạnh a">
+<input id="canhB" type="number" placeholder="Nhập cạnh b">
+<input id="canhC" type="number" placeholder="Nhập cạnh c">
+<input type="button" onclick="kiemTraTamGiac()" value="Kết Quả">
+<span id="ketQua9" ></span>
+<br><br>
+<h3>Bài 10 : Tính giá điện</h3>
+<input id="valueDien" type="number" placeholder="Nhập số kWh điện">
+<input type="button" onclick="tinhGiaDien()" value="Kết Quả">
+<span id="ketQua10" ></span>
+<br><br>
+<h3>Bài 10 : Tính thuế thu nhập cá nhân</h3>
+<input id="thuNhap" type="number" placeholder="Nhập thu nhập 1 năm (triệu)">
+<input type="button" onclick="tinhThueTNCN()" value="Kết Quả">
+<span id="ketQua11" ></span>
+<br><br>
+<h3>Bài 10 : Tính lãi ngân hàng</h3>
+<input id="money" type="number" placeholder="Nhập số tiền vay (triệu)">
+<input id="month" type="number" placeholder="Nhập số tháng vay(tháng)">
+<input id="laiSuat" type="number" placeholder="Nhập lãi suất hàng tháng(%)">
+<input type="button" onclick="tinhLaiSuat()" value="Kết Quả">
+<span id="ketQua12" ></span>
+<script>
+    function chuyenNhietDo(){
+        let doC= parseInt(document.getElementById("doC").value);
+        let doF = doC*9/5 + 32;
+        document.getElementById("ketQua1").innerHTML=doF;
+    }
+    function chuyenDoDai(){
+        let valueM=document.getElementById("valueM").value;
+        let valueFeet = valueM*3.2808;
+        document.getElementById("ketQua2").innerHTML= valueFeet;
+    }
+    function dienTichHinhVuong(){
+        let canhVuong=document.getElementById("canhVuong").value;
+        let dienTich = canhVuong*canhVuong;
+        document.getElementById("ketQua3").innerHTML= dienTich;
+    }
+    function dienTichHinhChuNhat() {
+        let chieuDai=document.getElementById("chieuDai").value;
+        let chieuRong=document.getElementById("chieuRong").value;
+        let dienTich=chieuDai*chieuRong;
+        document.getElementById("ketQua4").innerHTML=dienTich;
+    }
+    function dienTichtamGiacVuong() {
+        let canh1=document.getElementById("canh1").value;
+        let canh2=document.getElementById("canh2").value;
+        let dientich=canh1*canh2/2;
+        document.getElementById("ketQua5").innerHTML=dientich;
+    }
+    function phuongTrinhBac1() {
+        let a=parseFloat(document.getElementById("valueA").value);
+        let b=parseFloat(document.getElementById("valueB").value);
+        document.getElementById("ketQua6").innerHTML=giaiPhuongTrinhBac1(a,b);
+
+    }
+    function phuongTrinhBac2() {
+        let a=parseFloat(document.getElementById("valueA1").value);
+        let b=parseFloat(document.getElementById("valueB1").value);
+        let c=parseFloat(document.getElementById("valueC1").value);
+        let ketQua;
+        if(a===0){
+            ketQua=giaiPhuongTrinhBac1(b,c);
+        }
+        else {
+            let delta=b*b-4*a*c;
+            if(delta<0){
+                ketQua="Phương trình vô nghiệm";
+            }
+            else if(delta===0){
+                let x=-b/(2*a);
+                ketQua="Phương trình có nghiệm kép x1=x2= "+x;
+            }
+            else {
+                let x1=  (-b+Math.sqrt(delta))/(2*a);
+                let x2=  (-b-Math.sqrt(delta))/(2*a);
+                ketQua="Phương trình có nghiệm là x1="+x1+" và x2="+x2;
+            }
+        }
+        document.getElementById("ketQua7").innerHTML=ketQua;
+    }
+    function giaiPhuongTrinhBac1(a,b) {
+        if(a===0){
+            if(b==0){
+                return "Phương trình vô số nghiệm";
+            }
+            else {
+                return "Phương trình vô nghiệm";
+            }
+        }
+        else {
+            return "Phương trình có nghiệm là "+ -b/a;
+        }
+    }
+    function kiemTraTuoi() {
+        let age= document.getElementById("age").value;
+        let ageNew = parseInt(age);
+        let kiemTra = (age%ageNew)===0 && 0<age && age<120;
+        if(kiemTra){
+            document.getElementById("ketQua8").innerHTML="Đây là tuổi của người";
+        }
+        else {
+            document.getElementById("ketQua8").innerHTML="Không phải tuổi của người";
+        }
+    }
+    function kiemTraTamGiac() {
+        let a = parseFloat(document.getElementById("canhA").value);
+        let b = parseFloat(document.getElementById("canhB").value);
+        let c = parseFloat(document.getElementById("canhC").value);
+        let ketQua;
+        if (a < 0 || b < 0 || c < 0) {
+            ketQua = "Đây không phải là ba cạnh của tam giác";
+        }
+        else {
+            if(a+b>c && a+c>b && b+c>a){
+                ketQua = "Đây là ba cạnh của tam giác";
+            }
+            else {
+                ketQua = "Đây không phải là ba cạnh của tam giác";
+            }
+        }
+        document.getElementById("ketQua9").innerHTML=ketQua;
+    }
+    function tinhGiaDien() {
+        let valueDien =parseFloat(document.getElementById("valueDien").value) ;
+        let ketQua;
+        if(valueDien<50){
+            ketQua=valueDien*1.549;
+        }
+        else  if(valueDien<100){
+            ketQua=50*1.549+(valueDien-50)*1.6;
+        }
+        else if(valueDien<200){
+            ketQua=50*1.549+50*1.6+(valueDien-100)*1.858;
+        }
+        else if(valueDien<300){
+            ketQua=50*1.549+50*1.6+100*1.858+(valueDien-200)*2.34;
+        }
+        else if(valueDien<400){
+            ketQua=50*1.549+50*1.6+100*1.858+100*2.34+(valueDien-300)*2.615;
+        }
+        else {
+            ketQua=50*1.549+50*1.6+100*1.858+100*2.34+100*2.615+(valueDien-400)*2.701;
+        }
+        document.getElementById("ketQua10").innerHTML=ketQua;
+    }
+    function tinhThueTNCN() {
+        let thuNhap = parseFloat(document.getElementById("thuNhap").value);
+        let ketQua;
+        if(thuNhap<60){
+            ketQua=thuNhap*0.05;
+        }
+        else if(thuNhap<120){
+            ketQua=thuNhap*0.1;
+        }
+        else if(thuNhap<216){
+            ketQua=thuNhap*0.15;
+        }
+        else if(thuNhap<384){
+            ketQua=thuNhap*0.2;
+        }
+        else if(thuNhap<624){
+            ketQua=thuNhap*0.25;
+        }
+        else if(thuNhap<960){
+            ketQua=thuNhap*0.3;
+        }
+        else {
+            ketQua=thuNhap*0.35;
+        }
+        document.getElementById("ketQua11").innerHTML=ketQua;
+    }
+    function tinhLaiSuat() {
+        let money= parseFloat(document.getElementById("money").value);
+        let month =parseFloat(document.getElementById("month").value);
+        let laiSuat =parseFloat( document.getElementById("laiSuat").value);
+        let ketQua;
+        for(let i=1;i<=month;i++){
+            ketQua=money*laiSuat/100;
+            money=money+ketQua;
+        }
+        document.getElementById("ketQua12").innerHTML=ketQua;
+    }
+</script>
+</body>
+</html>

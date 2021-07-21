@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra phần tử</title>
+</head>
+<body>
+<script>
+    let arrayNum = new Array(10);
+    for(let i=0;i<10;i++){
+        arrayNum[i]=parseInt(prompt("Nhập phần tử a["+i+"] = "));
+    }
+    let num = parseInt(prompt("Nhập phần tử cần kiểm tra"));
+    let kiemTra=false;
+    for(let i=0;i<10;i++){
+        if(num===arrayNum[i]){
+            kiemTra=true;
+            break;
+        }
+    }
+    if(kiemTra){
+        alert("V is in the array");
+    }
+    else {
+        alert("V is not in the array");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In tam giác vuông</title>
+</head>
+<body>
+<script>
+    let ketQua1="";
+    for(let i=0;i<5;i++){
+        for(let j=0;j<=i;j++){
+            ketQua1+="*";
+        }
+        ketQua1+="<br>";
+    }
+    document.write(ketQua1);
+    document.write("<br>");
+    let ketQua2="";
+    for(let i=0;i<5;i++){
+        for(let j=5;j>i;j--){
+            ketQua2+="*";
+        }
+        ketQua2+="<br>";
+    }
+    document.write(ketQua2);
+    document.write("<br>");
+
+    //bai3
+    let ketQua3="";
+    for(let i=0;i<5;i++){
+        for(let j=0;j<4-i;j++){
+            ketQua3+=" " +
+                "";
+        }
+        for(let j=0;j<=i;j++){
+            ketQua3+="*";
+        }
+        ketQua3+="<br>";
+    }
+    document.write("<pre>"+ketQua3+"</pre>");
+
+    //bai4
+    let ketQua4="";
+    for(let i=0;i<5;i++){
+        for(let j=0;j<i;j++){
+            ketQua4+=" ";
+        }
+        for(let j=5;j>i;j--){
+            ketQua4+="*";
+        }
+        ketQua4+="<br>";
+    }
+    document.write("<pre>"+ketQua4+"</pre>");
+</script>
+</body>
+</html>

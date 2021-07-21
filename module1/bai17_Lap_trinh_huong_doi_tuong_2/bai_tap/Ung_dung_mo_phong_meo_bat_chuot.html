@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mèo bắt chuột</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1000px" height="500px" style="border: 1px solid black"></canvas>
+<script>
+    class Animal{
+        constructor(name,weight,speed,xPosition,yPosition) {
+            this.name = name;
+            this.weight =weight;
+            this.speed = speed;
+            this.xPosition = xPosition;
+            this.yPosition = yPosition;
+            this.canvas = document.getElementById("myCanvas");
+        }
+        say(){
+
+        }
+    }
+    class Rat extends Animal{
+        constructor(name,weight,speed,live,xPosition,yPosition) {
+            super(name,weight,speed,xPosition,yPosition);
+            this.live = live;
+        }
+        say (string) {
+            alert(string);
+        }
+        drawRat(){
+            let context =this.canvas.getContext("2d");
+            let xPosition = this.xPosition;
+            let yPosition = this.yPosition;
+            let imageObj = new Image();
+            imageObj.onload = function() {
+                context.drawImage(imageObj, xPosition, yPosition);
+            };
+            imageObj.src ='images/jerry.png';
+        }
+    }
+    class Cat extends Animal{
+        constructor(name,weight,speed,xPosition,yPosition) {
+            super(name,weight,speed,xPosition,yPosition);
+        }
+
+        say (string) {
+            alert(string);
+        };
+        catchRat(rat) {
+            if(this.speed > rat.speed){
+                this.eatRat(rat);
+                alert(rat.name +" đã bị "+ this.name+" bắt")
+            }else{
+                alert("Không bắt được");
+            }
+        }
+       eatRat(rat) {
+            if(rat.live){
+                rat.live=false;
+                this.weight += rat.weight;
+                alert(rat.name + " đã bị "+ this.name+" ăn");
+            }
+            else {
+                alert("Chuột đã chết");
+            }
+        }
+        drawCat(){
+            let context =this.canvas.getContext("2d");
+            let xPosition = this.xPosition;
+            let yPosition = this.yPosition;
+            let imageObj = new Image();
+            imageObj.onload = function() {
+                context.drawImage(imageObj, xPosition, yPosition);
+
+            };
+            imageObj.src ='images/tom.png';
+        }
+    }
+    let jerry = new Rat("Jerry",0.5,20,true,200,0);
+    let tom = new Cat("Tom",3,25,0,0);
+   jerry.drawRat();
+   tom.drawCat();
+
+   function catchMouse() {
+        if(1000- tom.xPosition>tom.speed){
+            clearImage();
+            jerry.xPosition+=jerry.speed;
+            tom.xPosition+=tom.speed;
+            jerry.drawRat();
+            tom.drawCat();
+            setTimeout(catchMouse,100);
+        }
+
+   }
+    function clearImage() {
+        let context = document.getElementById("myCanvas").getContext('2d');
+        context.clearRect(0,0,1000,500);
+    }
+    catchMouse();
+</script>
+</body>
+</html>

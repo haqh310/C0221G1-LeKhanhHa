@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1000px" height="500px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    function Rectangle(width, height) {
+        this.width = width;
+        this.height = height;
+        this.setSize = function (width, height) {
+            this.width = width;
+            this.height = height;
+        };
+        this.chuVi = function () {
+            return (width + height) * 2;
+        };
+        this.area = function () {
+            return width * height;
+        }
+        this.creatRectangle = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.fillRect(10, 10, width,height);
+            ctx.stroke();
+        }
+    }
+    let rectangle = new Rectangle(200,200);
+    alert(rectangle.chuVi());
+    alert(rectangle.area());
+    rectangle.creatRectangle();
+</script>
+</body>
+</html>

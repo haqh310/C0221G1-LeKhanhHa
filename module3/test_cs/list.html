@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Danh sách</title>
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <script src="bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container border pt-5 mt-5">
+    <div>
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h3>Employee
+                            <b>Details</b></h3>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                    <th>Gender</th>
+                    <th>ID Card</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody >
+                <tr>
+                    <td>John Doe</td>
+                    <td>15/05/1996</td>
+                    <td>Nam</td>
+                    <td>123456</td>
+                    <td>0983123456</td>
+                    <td>john@gmail.com</td>
+                    <td>USA</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Peter Parker</td>
+                    <td>04/08/1998</td>
+                    <td>Nam</td>
+                    <td>987254</td>
+                    <td>0983147859</td>
+                    <td>peter@gmail.com</td>
+                    <td>EK</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form action="#" method="POST">
+    <button class='btn btn-danger btn-xs' type="submit" name="remove_levels" value="delete"><span class="fa fa-times"></span> delete</button>
+</form>
+<label>Gender: </label>
+<select name="customer_gender" value="nu">
+    <option value="nam" selected>Male</option>
+    <option value="nam">Male</option>
+    <option value="nu">Female</option>
+    <option value="khac">Other</option>
+</select>
+<div id="confirm" class="modal hide fade">
+    <div class="modal-body">
+        Are you sure?
+    </div>
+    <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+        <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+    </div>
+</div>
+<script>
+    $('button[name="remove_levels"]').on('click', function(e) {
+        var $form = $(this).closest('form');
+        e.preventDefault();
+        $('#confirm').modal({
+            backdrop: 'static',
+            keyboard: false
+        })
+            .on('click', '#delete', function(e) {
+                $form.trigger('submit');
+            });
+    });
+</script>
+</body>
+</html>

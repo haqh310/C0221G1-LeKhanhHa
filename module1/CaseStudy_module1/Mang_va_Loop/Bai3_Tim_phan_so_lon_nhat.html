@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phân số lớn nhất</title>
+</head>
+<body>
+<script>
+    let lengthArray;
+    while (true){
+        lengthArray = parseInt(prompt("Nhập số lượng phần số"));
+        if(lengthArray>0){
+            break;
+        }
+        else {
+            alert("Bạn đã nhập sai.Vui lòng nhập lại");
+        }
+    }
+    let arrayNumerators =new Array(lengthArray);
+    for(let i=0;i<lengthArray;i++){
+        arrayNumerators[i]=parseInt(prompt("Nhập tử số "+i));
+    }
+    let arrayDenominators =new Array(lengthArray);
+    for(let i=0;i<lengthArray;i++){
+        arrayDenominators[i]=parseInt(prompt("Nhập mẫu số "+i));
+    }
+    let max=arrayNumerators[0]/arrayDenominators[0];
+    let local=0;
+    for(let i=1;i<lengthArray;i++){
+        let kiemTra = max<arrayNumerators[i]/arrayDenominators[i];
+        if(kiemTra){
+            max=arrayNumerators[i]/arrayDenominators[i];
+            local=i;
+        }
+    }
+    document.writeln("Phân số lớn nhất là : "+ max+ " có chỉ số là " +local);
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xóa phần tử</title>
+</head>
+<body>
+<script>
+    let arrayNum = new Array(10);
+    for(let i=0;i<10;i++){
+        arrayNum[i]=parseInt(prompt("Nhập phần tử a["+i+"] = "));
+    }
+    document.writeln(arrayNum.join(" "));
+    document.writeln("<br>");
+    let num = parseInt(prompt("Nhập phần tử cần kiểm tra"));
+    let local=0;
+    let kiemTra;
+    do {
+        let kiemTra=false;
+        for (let i = 0; i < 10; i++) {
+            if (num === arrayNum[i]) {
+                kiemTra = true;
+                local = i;
+                break;
+            }
+        }
+        for (let i = local; i < 10; i++) {
+            arrayNum[i] = arrayNum[i + 1];
+        }
+    }while (kiemTra);
+document.writeln("Chuỗi mới là : "+arrayNum.join(" "));
+</script>
+</body>
+</html>

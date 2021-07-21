@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic tac toe</title>
+</head>
+<body>
+<form id="tableCaro"></form>
+<script>
+    class Caro{
+        constructor(size) {
+            this.size =size;
+            this.valueCaro="O";
+            this.arrayCaro =creatArray(caro);
+        }
+        drawTable(){
+            let tableCaro = "<table border='1px' >";
+            for (let i = 2; i < this.size+2; i++) {
+                tableCaro += "<tr>";
+                for (let j = 2; j < this.size+2; j++) {
+                    tableCaro += "<td style='width:20px;height: 20px;text-align: center' onclick='playingCaro(" + i + "," + j + ")'>" + this.arrayCaro[i][j] + "</td>";
+                }
+                tableCaro += "</tr>";
+            }
+            tableCaro += "</table>";
+            document.getElementById("tableCaro").innerHTML = tableCaro;
+        }
+        playCaro(i, j) {
+            if (this.arrayCaro[i][j] === "") {
+                this.arrayCaro[i][j] = this.valueCaro;
+                if(this.valueCaro==="O"){
+                    this.valueCaro="X";
+                }
+                else {
+                    this.valueCaro="O";
+                }
+            } else {
+                alert("Ô này đã chơi rồi")
+            }
+        }
+        winGameCaro() {
+            let checkWin = false;
+            for (let i = 2; i < 22; i++) {
+                for (let j = 2; j < 22; j++) {
+                    if (this.arrayCaro[i][j] !== "") {
+                        if ((this.arrayCaro[i][j] === this.arrayCaro[i][j + 1] && this.arrayCaro[i][j] === this.arrayCaro[i][j+2]) ||
+                            (this.arrayCaro[i][j] === this.arrayCaro[i + 1][j] && this.arrayCaro[i][j] === this.arrayCaro[i +2][j]) ||
+                            (this.arrayCaro[i][j] === this.arrayCaro[i + 1][j + 1] && this.arrayCaro[i ][j ] === this.arrayCaro[i + 2][j + 2]) ||
+                            (this.arrayCaro[i][j] === this.arrayCaro[i -1][j + 1] && this.arrayCaro[i][j] === this.arrayCaro[i - 2][j + 2])
+                        ) {
+                            checkWin = true;
+                            break;
+                        }
+                    }
+                }
+                if(checkWin){
+                    alert("Bạn đã win game");
+                    break;
+                }
+            }
+        }
+    }
+    function creatArray(caro){
+        caro.arrayCaro = new Array(caro.size+4);
+        for (let i = 0; i < caro.arrayCaro.length; i++) {
+            caro.arrayCaro[i] = new Array(caro.arrayCaro.length);
+            for (let j = 0; j < this.arrayCaro.length; j++) {
+                caro.arrayCaro[i][j] = "";
+            }
+        }
+    }
+
+    function  playingCaro(i, j) {
+        caro.playCaro(i,j);
+        caro.drawTable();
+        caro.winGameCaro();
+      }
+    function start(){
+        caro = new Caro(20);
+        caro.drawTable();
+    }
+    let caro;
+    start();
+
+
+
+</script>
+</body>
+</html>

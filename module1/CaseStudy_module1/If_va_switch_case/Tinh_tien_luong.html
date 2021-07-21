@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tiền lương</title>
+</head>
+<body>
+<script>
+    let tienLuong=prompt("Nhập tiền lương:");
+    if(tienLuong>15000000)
+        alert("Thuế thu nhâp : "+tienLuong*0.2+"; Lương thực sư:" +tienLuong*0.8 );
+    else if(tienLuong>7000000)
+        alert("Thuế thu nhâp : "+tienLuong*0.1+"; Lương thực sư:" +tienLuong*0.9 );
+    else
+        alert("Thuế thu nhâp : "+tienLuong*0.05+"; Lương thực sư:" +tienLuong*0.95 );
+
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+<h3>Xổ số CodeGym</h3>
+<table id="winLottery"></table>
+<table id="lottery"></table>
+<br><br>
+<input id="buy" type="button" onclick="buyLottery()" value="Mua vé" >
+<input  type="button" onclick="resultLottery()" value="Kết quả" > 
+<script>
+    class Player {
+        constructor() {
+            this.lottery = [];
+        }
+        buylottery() {
+            //else {
+                let order = prompt("Bạn có 2 lựa chọn:\n" + "1.Bạn muốn tự chọn số.\n" + "2.Hệ thống tự random.");
+                let arrLottery = [];
+                switch (order) {
+                    case "1":
+                        do{
+                            let lottery = prompt("Nhập 6 số vé số ");
+                            arrLottery = lottery.split(' ');
+                            let check = arrLottery.length >0 && arrLottery.length <7;
+                            if(check){
+                                this.lottery.push(arrLottery);
+                                break;
+                            }
+                            else {
+                                alert("Bạn đã nhập sai. Vui lòng nhập lại!!!");
+                            }
+                        }
+                        while (true);
+                        break;
+                    case "2":
+                        for (let i = 0; i < 6; i++) {
+                            let num = Math.floor(Math.random() * 2);
+                            arrLottery.push(num);
+                        }
+                        this.lottery.push(arrLottery);
+                        break;
+                    default:
+                        alert("Bạn đã nhập sai");
+                }
+            if (this.lottery.length === 4) {
+                document.getElementById("buy").disabled = true;
+            }
+            this.viewLottey();
+        }
+        viewLottey() {
+            let result = "";
+            for (let i = 0; i < this.lottery.length; i++) {
+                result += "<tr>";
+                for (let j = 0; j < 6; j++) {
+                    result += "<td><input type='' value=" + this.lottery[i][j] +" ></td>";
+                }
+                result += "</tr>";
+            }
+            document.getElementById("lottery").innerHTML = result;
+        }
+    }
+    class VietLot {
+        constructor() {
+            this.lotteryWin = [];
+        }
+        winLottery() {
+            for (let i = 0; i < 6; i++) {
+                let num = Math.floor(Math.random() * 2);
+                this.lotteryWin.push(num);
+            }
+        }
+        viewLottey() {
+            let result = "";
+                for (let j = 0; j < 6; j++) {
+                    result += "<td><input style='background: orange' value=" + this.lotteryWin[j] + "></td>";
+                }
+                result += "</tr>";
+            document.getElementById("winLottery").innerHTML = result;
+        }
+        checklottery(player) {
+            let result = 0;
+            for (let lottery of player.lottery) {
+                let num = 0;
+                for (let j = 5; j > -1; j--) {
+                    if (lottery[j] === this.lotteryWin[j]) {
+                        num++;
+                    } else {
+                        break;
+                    }
+                }
+                result += this.resultAward(num);
+            }
+            if (result > 0) {
+                alert("Số tiền bạn trúng là :" + result);
+            } else {
+                alert("Chúc bạn may mắn lần sau");
+            }
+            this.viewLottey();
+            document.getElementById("result").disabled = true
+        }
+        resultAward(num) {
+            let result = 0;
+            switch (num) {
+                case 6:
+                    result = 1000;
+                    break;
+                case 5:
+                    result = 500;
+                    break;
+                case 4:
+                case 3:
+                    result = 100;
+                    break;
+            }
+            return result;
+        }
+    }
+    let player = new Player();
+    let vietLot = new VietLot();
+    vietLot.winLottery();
+
+    function buyLottery() {
+        player.buylottery();
+    }
+
+    function resultLottery() {
+        vietLot.checklottery(player);
+    }
+</script>
+</body>
+</html>

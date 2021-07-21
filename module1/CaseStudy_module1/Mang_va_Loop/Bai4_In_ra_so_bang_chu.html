@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In số bằng chữ</title>
+</head>
+<body>
+<script>
+    let num = prompt("Nhập số :");
+    document.write(num+" chuyến thành chữ là : ");
+    let result="";
+    for(let i=0;i<num.length;i++){
+        result+=chuyenSoThanhChu(parseInt(num[i]))+" ";
+    }
+    document.write(result);
+    function chuyenSoThanhChu(a) {
+        switch (a) {
+            case 0:
+                return "không";
+            case 1:
+                return "một";
+            case 2:
+                return "hai";
+            case 3:
+                return "ba";
+            case 4:
+                return "bốn";
+            case 5:
+                return "năm";
+            case 6:
+                return "sáu";
+            case 7:
+                return "bảy";
+            case 8:
+                return "tám";
+            case 9:
+                return "chín";
+        }
+    }
+</script>
+</body>
+</html>

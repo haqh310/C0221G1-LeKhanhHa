@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="layout :: head">
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+<body>
+<p>
+    <a href="/shopping-cart" class="btn btn-success">Your cart</a>
+</p>
+<div class="row">
+    <th:block th:each="product:${products}">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+                <img th:src="@{'/img/img'+ ${product.id}+ '.jpg'}" class="card-img-top border" height="250px"/>
+                <div class="card-body text-center">
+                    <a class="h6" th:href="@{/view/__${product.id}__}" th:text="${product.name}"></a>
+                    <p class="text-danger h5" th:text="${product.price} + ' đ'"></p>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</div>
+</body>
+</html>

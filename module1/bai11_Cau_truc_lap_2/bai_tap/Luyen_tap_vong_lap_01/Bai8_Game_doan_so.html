@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game đoán số</title>
+</head>
+<body>
+<input id="min" type="text" placeholder="Nhập khoảng min">
+<input id="max" type="text" placeholder="Nhập khoảng max">
+<input type="button" onclick="duDoan()" value="Chơi">
+<script>
+    function duDoan() {
+        let min= parseInt(document.getElementById("min").value);
+        let max= parseInt(document.getElementById("max").value);
+        let numRandom = Math.floor(Math.random()*(max-min))+min;
+        while (true){
+            let num = parseInt(prompt("Nhập số cần đoán"));
+            if(num===numRandom){
+                alert("Bạn đã đoán chính xác");
+                break;
+            }
+            else {
+                alert("Bạn đã đoán sai");
+            }
+        }
+    }
+</script>
+</body>
+</html>

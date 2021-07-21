@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table
+        {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        input
+        {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<form>
+
+    <table>
+        <tr>
+            <td colspan="4"> <input style="width: 96%" type="text" id="input"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="(" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value=")" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="%" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="AC" onclick="tinhToan(this.value)"></input></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="8" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="9" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="/" onclick="tinhToan(this.value)"></input></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="5" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="6" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="*" onclick="tinhToan(this.value)"></input></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="3" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="2" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="1" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="-" onclick="tinhToan(this.value)"></input></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="." onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="=" onclick="tinhToan(this.value)"></input></td>
+            <td><input type="button" value="+" onclick="tinhToan(this.value)"></input></td>
+        </tr>
+    </table>
+</form>
+<br>
+<script src="May_tinh_nang_cao.js"></script>
+</body>
+</html>

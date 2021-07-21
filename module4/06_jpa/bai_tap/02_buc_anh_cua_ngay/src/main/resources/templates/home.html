@@ -1,0 +1,71 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <style>
+        table td{
+            border: 1px solid black;
+            width: 300px;
+            padding: 10px 5px;
+        }
+        div{
+            margin: 20px 0px;
+        }
+        form{
+            border: 1px solid black;
+            text-align: left;
+            padding: 10px 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<img id="img-of-the-day"><br><br>
+<div>
+    <h3>List Comment: </h3>
+    <table>
+        <tbody>
+        <tr th:each="c : ${comments}">
+            <td>
+                <p th:text="${c.getScore()}"></p>
+                <p th:text="${c.author} +':'+ ${c.feedback}"></p>
+                <span th:text="${c.likes}+ ' likes  '"></span>
+                <a th:href="@{/comment/like(id=${c.getId()})}">
+                    <button>Like</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>Comment:</h3>
+    <form th:action="@{/comment/save}" th:object="${comment}"
+          method="POST" novalidate="novalidate">
+        <select th:field="*{score}">
+            <option value="+1 Bad">1</option>
+            <option value="+2 Normal">2</option>
+            <option value="+3 Good">3</option>
+            <option value="+4 Great">4</option>
+            <option value="+5 So awesome">5</option>
+        </select><br>
+        <label>Author:</label><br>
+        <input type="text" th:field="*{author}"/><br>
+        <label>Feedback:</label><br>
+        <textarea th:field="*{feedback}" rows="3"></textarea><br>
+        <input type="submit" value="Comment"/>
+    </form>
+</div>
+<script>
+    let query = 'https://api.nasa.gov/planetary/apod?api_key=xH7HDozMDyqutpWLZEfgvmpkGncCxUhtOF5qhhba';
+    let request = new XMLHttpRequest();
+    request.open('GET', query);
+    request.onload = function() {
+        if (request.status === 200) {
+            let response = JSON.parse(request.responseText);
+            document.getElementById('img-of-the-day').setAttribute('src', response.url);
+        }
+    };
+    request.send();
+</script>
+</body>
+</html>

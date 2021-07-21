@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gọi món</title>
+</head>
+<body>
+<ol> MENU
+    <li>Cafe:15K</li>
+    <li>Cam vắt:20K</li>
+    <li>Nước ép cà rốt:25K</li>
+    <li>Nước ép cà chua:20K</li>
+    <li>Nước lọc:5K</li>
+    <li>Nước dừa :10K</li>
+    <li>Tính tiền</li>
+</ol>
+<input type="button" onclick="Goinuoc()" value="Gọi nước">
+<p id="ketQua"></p>
+<script>
+    let ketQua = 0;
+    let arrayMenu = [15, 20, 25, 20, 5, 10];
+    function Goinuoc() {
+        while (true) {
+            let local = parseInt(prompt("Nhập loại thúc uống (theo thứ tự)"));
+            if (local === 7) {
+                break;
+            } else {
+                let num = parseInt(prompt("Nhập số lượng"));
+                ketQua += arrayMenu[local - 1] * num;
+            }
+        }
+        document.getElementById("ketQua").innerHTML = "Tổng tiền là : " + ketQua + "K";
+    }
+</script>
+</body>
+</html>

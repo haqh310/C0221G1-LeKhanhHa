@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng các số chẵn</title>
+</head>
+<body>
+<script>
+    let m=parseInt(prompt("Nhập giá trị m"));
+    let n=parseInt(prompt("Nhập giá trị n"));
+    let arrayNum=new Array(m);
+    for(let i=0;i<m;i++){
+        arrayNum[i] = new Array(n);
+        for(let j=0;j<n;j++){
+            arrayNum[i][j]=parseInt(prompt("Nhập phần tử ["+i+"]["+j+"]"));
+        }
+    }
+    let sum=0;
+    for(let i=0;i<m;i++){
+        for(let j=0;j<n;j++){
+            if(arrayNum[i][j]%2===0){
+                sum+=arrayNum[i][j];
+            }
+            document.writeln(arrayNum[i][j]);
+        }
+        document.writeln("<br>");
+    }
+    document.writeln("Tổng các giá tri chẵn trong mảng là :"+sum);
+</script>
+</body>
+</html>

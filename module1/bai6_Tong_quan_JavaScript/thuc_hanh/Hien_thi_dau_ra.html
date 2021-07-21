@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị</title>
+</head>
+<body>
+<label>Bài tập 1</label>
+<button type="button" onclick="showMessage();">Click Me!</button>
+<script>
+    function showMessage(){
+        alert('Xin chào!');
+    }
+</script>
+<br><br>
+<div id="messageDiv"></div>
+<label>Bài tập 2</label>
+<button type="button" onclick="showMessage2();">Click Me!</button>
+<script>
+    function showMessage2(){
+        document.getElementById('messageDiv').innerHTML = 'Xin chào!';
+    }
+</script>
+<br><br>
+<label>Bài tập 3</label>
+<button type="button" onclick="showMessage3();">Click Me!</button>
+<script>
+    function showMessage3(){
+        document.write('Xin chào!');
+    }
+</script>
+<br><br>
+<label>Bài tập 4</label>
+<button type="button" onclick="showMessage4();">Click Me!</button>
+<script>
+    function showMessage4(){
+        console.log('Xin chào!');
+    }
+</script>
+</body>
+</html>

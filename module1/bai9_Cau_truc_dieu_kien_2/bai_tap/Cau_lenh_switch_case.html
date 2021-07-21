@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch-case</title>
+</head>
+<body>
+<input id="month" type="text">
+<input type="button" onclick="ngayThang()" value="Tính số ngày">
+<h4 id="days"></h4>
+<script>
+    function ngayThang() {
+        let month = parseInt(document.getElementById("month").value) ;
+        let days;
+        switch (month) {
+            case 2:
+                days=("Tháng 2 có 28 hoặc 29 ngày");
+                break;
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                days=("Tháng "+month+" có 31 ngày");
+                break
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                days=("Tháng "+month+" có 30 ngày");
+                break;
+            default:
+                days=("Không có tháng "+month);
+        }
+        document.getElementById("days").innerHTML=days;
+    }
+</script>
+</body>
+</html>

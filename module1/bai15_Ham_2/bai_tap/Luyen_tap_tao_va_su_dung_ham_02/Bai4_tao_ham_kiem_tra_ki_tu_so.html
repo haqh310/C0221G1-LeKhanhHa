@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kí tự số</title>
+</head>
+<body>
+<script>
+    let char ="0123456789";
+    function charNumber(stringNum) {
+        let check=false;
+        if(char.indexOf(stringNum) !==-1){
+            check = true;
+        }
+        return check;
+    }
+    let string = "46";
+    alert(charNumber(string));
+</script>
+</body>
+</html>

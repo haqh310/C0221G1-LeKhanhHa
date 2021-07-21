@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tổng 20 số fibonacci</title>
+</head>
+<body>
+<script>
+    let a=0;
+    let b=1;
+    let c;
+    let count=1;
+    let num=0;
+    while (count<20){
+        num+=b;
+        c=a+b;
+        a=b;
+        b=c;
+        count++;
+    }
+alert(num)
+</script>
+</body>
+</html>

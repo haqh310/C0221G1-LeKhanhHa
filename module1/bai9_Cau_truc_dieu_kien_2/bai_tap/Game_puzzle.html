@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game puzzle</title>
+    <style>
+        input {
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<input type="image" id="img1"><br>
+<input type="image" id="img2"><br>
+<input type="image" id="img3"><br>
+<input type="image" id="img4"><br>
+<input type="image" id="img5">
+<script>
+    let inputImage = document.querySelectorAll('input[type="image"]');
+    let image1 = [
+        [
+            "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part1x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part2x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part3x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part4x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part5x1.jpg",
+        ],
+        [
+            "https://demo.codegym.vn/8/puzzlegame/img/monkey_part1x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/monkey_part2x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/monkey_part3x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/monkey_part4x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/monkey_part5x1.jpg",
+
+        ],
+        [
+            "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part1x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part2x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part3x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part4x1.jpg",
+            "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part5x1.jpg",
+
+        ]
+    ]
+    randomImg();
+    for (let i = 0; i < inputImage.length; i++) {
+        inputImage[i].onclick = function () {
+            let j = Math.floor(Math.random() * 3);
+            inputImage[i].src = image1[j][i];
+
+            let image2 = [inputImage[0].src, inputImage[1].src, inputImage[2].src, inputImage[3].src, inputImage[4].src];
+            if (image2.toString() === image1[0].toString() || image2.toString() === image1[1].toString() || image2.toString() === image1[2].toString()) {
+                for (let j = 0; j < 5; j++) {
+                    inputImage[j].style.border = "3px solid red";
+                }
+            } else {
+                for (let j = 0; j < inputImage.length; j++) {
+                    inputImage[j].style.border = "3px solid wheat";
+                }
+            }
+        }
+    }
+
+    function randomImg() {
+        for (let i = 0; i < inputImage.length; i++) {
+            let rd = Math.floor(Math.random() * 3);
+            inputImage[i].src = image1[rd][i];
+        }
+    }
+
+</script>
+</body>
+</html>
