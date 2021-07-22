@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <td>Number1:</td>
+    <td><input type="number" [(ngModel)]="number.number1"></td>
+  </tr>
+  <tr>
+    <td>Number2:</td>
+    <td><input type="number" [(ngModel)]="number.number2"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <button (click)="result('+')">+</button>
+      <button (click)="result('-')">-</button>
+      <button (click)="result('*')">*</button>
+      <button (click)="result('/')">/</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Result:</td>
+    <td>{{number.result}}</td>
+    <!--    <td><input type="text" [(ngModel)]="number.result"></td>-->
+  </tr>
+</table>
