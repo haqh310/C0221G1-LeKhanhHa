@@ -20,18 +20,18 @@ console.log('Start');
 //     }).finally(()=> {console.log("End")});
 
 async function searchGithub() {
-   return await new Promise(function (resolve, reject) {
-       let xHttp = new XMLHttpRequest();
-       xHttp.onload =function () {
-           if(this.status == 200){
-               resolve(xHttp.responseText);
-           } else {
-               reject("Error call API");
-           }
-       };
-       xHttp.open("GET", "https://api.github.com/search/repositories?q=angular");
-       xHttp.send();
-   });
+    return await new Promise(function (resolve, reject) {
+        let xHttp = new XMLHttpRequest();
+        xHttp.onload =function () {
+            if(this.status == 200){
+                resolve(xHttp.responseText);
+            } else {
+                reject("Error call API");
+            }
+        };
+        xHttp.open("GET", "https://api.github.com/search/repositories?q=angular");
+        xHttp.send();
+    });
 }
 searchGithub().then(function (result) {
     console.log("OK");
