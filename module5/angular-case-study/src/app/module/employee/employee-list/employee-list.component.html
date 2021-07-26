@@ -1,0 +1,58 @@
+<div class="container-fluid border pt-5 mt-5">
+  <h1>List Employee</h1>
+  <p><a href="/">Back to menu</a></p>
+  <div class="row">
+    <div class="col-6">
+      <p><a class="btn btn-success " routerLink="/employee/create"><strong>+ </strong>Create employee</a></p>
+    </div>
+    <div class="col-6 d-flex justify-content-end ">
+      <input  class="mb-3 mr-2" type="text" name="name" [(ngModel)]="name" placeholder="Enter name...">
+      <button class="btn btn-primary mb-3" (click)="Search()">Search</button>
+    </div>
+  </div>
+  <table class="table table-bordered table-striped ">
+    <thead>
+    <tr>
+      <th>STT</th>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Eduction Degree</th>
+      <th>Division</th>
+      <th>Birthday</th>
+      <th>Id Card</th>
+      <th>Salary</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees| paginate: { itemsPerPage: 2,
+                                                      currentPage: p},  let i = index ">
+      <td>{{i+1}}</td>
+      <td>{{employee.employeeName}}</td>
+      <td>{{employee.position.positionName}}</td>
+      <td>{{employee.educationDegree.educationDegreeName}}</td>
+      <td>{{employee.division.divisionName}}</td>
+      <td>{{employee.employeeBirthday | date: 'dd/MM/yyyy'}}</td>
+      <td>{{employee.employeeIdCard}}</td>
+      <td>{{employee.employeeSalary}}</td>
+      <td>{{employee.employeePhone}}</td>
+      <td>{{employee.employeeEmail}}</td>
+      <td>{{employee.employeeAddress}}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/employee/edit',employee.id]">Edit</a>
+      </td>
+      <td>
+        <button (click)="openConfirmationDialog(employee.id, employee.employeeName)" type="button" class="btn btn-primary" >Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-end">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
+

@@ -1,0 +1,53 @@
+<div class="container-fluid border pt-5 mt-5">
+  <h1>List Customer</h1>
+  <p><a href="/">Back to menu</a></p>
+  <div class="row">
+    <div class="col-6">
+      <p><a class="btn btn-success " routerLink="/service/create"><strong>+ </strong>Create customer</a></p>
+    </div>
+    <div class="col-6 d-flex justify-content-end ">
+      <input class="mb-3 mr-2" type="text" name="name" [(ngModel)]="name" placeholder="Enter name...">
+      <button class="btn btn-primary mb-3" (click)="Search()">Search</button>
+    </div>
+  </div>
+  <table class="table table-bordered table-striped ">
+    <thead>
+    <tr>
+      <th>STT</th>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Rent Type</th>
+      <th>Area</th>
+      <th>Cost</th>
+      <th>Max People</th>
+      <th>Status</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let service of services| paginate: { itemsPerPage: 2,
+                                                      currentPage: p},  let i = index ">
+      <td>{{i + 1}}</td>
+      <td>{{service.serviceCode}}</td>
+      <td>{{service.serviceName}}</td>
+      <td>{{service.rentType.rentTypeName}}</td>
+      <td>{{service.serviceArea }}</td>
+      <td>{{service.serviceCost}}</td>
+      <td>{{service.serviceMaxPeople}}</td>
+      <td>{{service.serviceStatus}}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/service/edit',service.id]">Edit</a>
+      </td>
+      <td>
+        <button (click)="openConfirmationDialog(service.id, service.serviceName)" type="button" class="btn btn-primary">
+          Delete
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-end">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

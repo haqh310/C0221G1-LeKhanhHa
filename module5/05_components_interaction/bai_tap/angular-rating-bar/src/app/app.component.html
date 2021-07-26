@@ -1,0 +1,11 @@
+<app-rating-bar value="3" active="red"></app-rating-bar>
+<hr>
+<div>
+  <br>
+  <h3>Countdown Timer</h3>
+  <input type="number" [(ngModel)]="number">
+  <br>
+  <app-countdown-timer (countChanged)="display($event)" [seconds]="number"></app-countdown-timer>
+  <p>Thời gian còn lại: {{time}}</p>
+</div>
+

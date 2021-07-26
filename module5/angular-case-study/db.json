@@ -1,0 +1,159 @@
+{
+  "customer-types": [
+    {
+      "id": 1,
+      "customerTypeName": "Diamond"
+    },
+    {
+      "id": 2,
+      "customerTypeName": "Platinum"
+    },
+    {
+      "id": 3,
+      "customerTypeName": "Gold"
+    },
+    {
+      "id": 4,
+      "customerTypeName": "Silver"
+    },
+    {
+      "id": 5,
+      "customerTypeName": "Member"
+    }
+  ],
+  "customers": [
+    {
+      "customerCode": "KH-2547",
+      "customerName": "toandang",
+      "dateOfBirth": "1999-10-03",
+      "customerIdCard": "123456789",
+      "customerPhone": "0901234567",
+      "customerEmail": "toandn@gmail.com",
+      "customerAddress": "danang",
+      "customerType": {
+        "id": 4,
+        "customerTypeName": "Silver"
+      },
+      "id": 3
+    }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "positionName": "Lễ tân"
+    },
+    {
+      "id": 2,
+      "positionName": "Phục vụ"
+    },
+    {
+      "id": 3,
+      "positionName": "Chuyên viên"
+    },
+    {
+      "id": 4,
+      "positionName": "Giám sát"
+    },
+    {
+      "id": 5,
+      "positionName": "Quản lý"
+    },
+    {
+      "id": 6,
+      "positionName": "Giám đốc"
+    }
+  ],
+  "divisions": [
+    {
+      "id": 1,
+      "divisionName": "Sale – Marketing"
+    },
+    {
+      "id": 2,
+      "divisionName": "Hành Chính"
+    },
+    {
+      "id": 3,
+      "divisionName": "Phục vụ"
+    },
+    {
+      "id": 4,
+      "divisionName": "Quản lý"
+    }
+  ],
+  "education-degrees": [
+    {
+      "id": 1,
+      "educationDegreeName": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "educationDegreeName": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "educationDegreeName": "Đại học "
+    },
+    {
+      "id": 4,
+      "educationDegreeName": "Sau đại học"
+    }
+  ],
+  "employees": [
+    {
+      "employeeName": "haqh",
+      "employeeBirthday": "1999-10-03",
+      "employeeIdCard": "123456789",
+      "employeeSalary": "1500",
+      "employeePhone": "0901234567",
+      "employeeEmail": "haqh310@gmail.com",
+      "employeeAddress": "qb",
+      "division": {
+        "id": 1,
+        "divisionName": "Sale – Marketing"
+      },
+      "position": {
+        "id": 3,
+        "positionName": "Chuyên viên"
+      },
+      "educationDegree": {
+        "id": 2,
+        "educationDegreeName": "Cao đẳng"
+      },
+      "id": 1
+    }
+  ],
+  "rent-types": [
+    {
+      "id": 1,
+      "rentTypeName": "Villa",
+      "rentTypeCost": 1500
+    },
+    {
+      "id": 2,
+      "rentTypeName": "House",
+      "rentTypeCost": 1000
+    },
+    {
+      "id": 3,
+      "rentTypeName": "Room",
+      "rentTypeCost": 500
+    }
+  ],
+  "services": [
+    {
+      "serviceCode": "DV-1234",
+      "serviceName": "Villa1",
+      "serviceArea": 200,
+      "serviceCost": 2000,
+      "serviceMaxPeople": 5,
+      "serviceStatus": "OK",
+      "rentType": {
+        "id": 1,
+        "rentTypeName": "Villa",
+        "rentTypeCost": 1500
+      },
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+<h3>Rating Bar</h3>
+<p>{{rating.value}}</p>
+<div *ngFor="let n of  [1,2,3,4,5,6,7,8,9,10]">
+  <button [ngStyle]="{backgroundColor : rating.value >= n ? active: 'black' }"  (click)="change(n)">{{n}}</button>
+</div>

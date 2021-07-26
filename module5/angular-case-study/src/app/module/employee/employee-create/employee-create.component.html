@@ -1,0 +1,129 @@
+<div class="row">
+  <div class="container d-flex justify-content-center">
+    <div class="col-6 d-flex flex-column border border-info">
+      <h1 class="text-center text-danger mt-2">Create new employee</h1>
+      <form [formGroup]="employeeForm" (ngSubmit)="createEmployee()">
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" class="form-control" placeholder="Enter name... " formControlName="employeeName">
+          <div class='form-text error' *ngIf='employeeForm.controls.employeeName.touched'>
+            <div *ngIf="employeeForm.controls.employeeName.hasError('required')">
+              <small>Name is required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Division: </label>
+          <select class="form-control" formControlName="division">
+            <option value="">---Select division---</option>
+            <option *ngFor="let division of divisions"
+                    [ngValue]="division">{{division.divisionName}}</option>
+          </select>
+          <div class='form-text error' *ngIf='employeeForm.controls.division.touched'>
+            <div *ngIf="employeeForm.controls.division.hasError('required')">
+              <small>Division is required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Position: </label>
+          <select class="form-control" formControlName="position">
+            <option value="">---Select position---</option>
+            <option *ngFor="let position of positions"
+                    [ngValue]="position">{{position.positionName}}</option>
+          </select>
+          <div class='form-text error' *ngIf='employeeForm.controls.position.touched'>
+            <div *ngIf="employeeForm.controls.position.hasError('required')">
+              <small>Position is required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Education Degree: </label>
+          <select class="form-control" formControlName="educationDegree">
+            <option value="">---Select education degree---</option>
+            <option *ngFor="let educationDegree of eductionDegrees"
+                    [ngValue]="educationDegree">{{educationDegree.educationDegreeName}}</option>
+          </select>
+          <div class='form-text error' *ngIf='employeeForm.controls.educationDegree.touched'>
+            <div *ngIf="employeeForm.controls.educationDegree.hasError('required')">
+              <small>Education Degree is required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Birthday:</label>
+          <input type="date" class="form-control" formControlName="employeeBirthday">
+          <div class='form-text error' *ngIf='employeeForm.controls.employeeBirthday.touched'>
+            <div *ngIf="employeeForm.controls.employeeBirthday.hasError('required')">
+              <small>Date of birth is required.</small>
+            </div>
+            <div *ngIf="employeeForm.controls.employeeBirthday.hasError('pattern')">
+              <small>Date of birth must format dd/mm/yyyy.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>ID Card: </label>
+          <input type="text" class="form-control" placeholder="Enter id card... " formControlName="employeeIdCard">
+          <div class='form-text error' *ngIf='employeeForm.controls.employeeIdCard.touched'>
+            <div *ngIf="employeeForm.controls.employeeIdCard.hasError('required')">
+              <small>Id card is required.</small>
+            </div>
+            <div *ngIf="employeeForm.controls.employeeIdCard.hasError('pattern')">
+              <small>Id card must format XXXXXXXXX or XXXXXXXXXXXX.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Salary: </label>
+          <input type="text" class="form-control" placeholder="Enter salary... " formControlName="employeeSalary">
+          <div class='form-text error' *ngIf='employeeForm.controls.employeeSalary.touched'>
+            <div *ngIf="employeeForm.controls.employeeSalary.hasError('required')">
+              <small>Salary is required.</small>
+            </div>
+            <div *ngIf="employeeForm.controls.employeeSalary.hasError('pattern')">
+              <small>Salary must format number.</small>
+            </div>
+            <div *ngIf="employeeForm.controls.employeeSalary.hasError('min')">
+              <small>Salary must great 0.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone: </label>
+          <input type="text" class="form-control" placeholder="Enter phone number..." formControlName="employeePhone">
+          <div class='form-text error' *ngIf='employeeForm.controls.employeePhone.touched'>
+            <div *ngIf="employeeForm.controls.employeePhone.hasError('required')">
+              <small>Phone is required.</small>
+            </div>
+            <div *ngIf="employeeForm.controls.employeePhone.hasError('pattern')">
+              <small>Phone must format 090xxxxxxx or 091xxxxxxx.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email: </label>
+          <input type="email" class="form-control" placeholder="Enter email..." formControlName="employeeEmail">
+          <div class='form-text error' *ngIf='employeeForm.controls.employeeEmail.touched'>
+            <div *ngIf="employeeForm.controls.employeeEmail.hasError('required')">
+              <small>Email is required.</small>
+            </div>
+            <div *ngIf="employeeForm.controls.employeeEmail.hasError('email')">
+              <small>Email must format email@.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Address: </label>
+          <input type="text" class="form-control" placeholder="Enter address... " formControlName="employeeAddress">
+        </div>
+        <div class="d-flex justify-content-center ">
+          <a class="btn btn-secondary mb-3 " routerLink="/employee/list">Back to menu</a>
+          <button type="submit" class="btn btn-primary mb-3 mx-3">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
