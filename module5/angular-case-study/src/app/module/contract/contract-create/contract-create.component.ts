@@ -50,7 +50,7 @@ export class ContractCreateComponent implements OnInit {
       contractDeposit: new FormControl('', [Validators.required, Validators.pattern('[0-9]+'), Validators.min(0)]),
     });
   }
-  saveContract(){
+  createContract(){
     const contract = this.contractForm.value;
     this.contractService.saveContract(contract).subscribe(() => {
       this.router.navigate(['contract/list']);

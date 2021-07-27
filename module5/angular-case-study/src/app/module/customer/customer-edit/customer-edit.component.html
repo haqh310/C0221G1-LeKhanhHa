@@ -84,7 +84,7 @@
         </div>
         <div class="d-flex justify-content-center ">
           <a class="btn btn-secondary mb-3 " routerLink="/customer/list">Back to menu</a>
-          <button type="submit" class="btn btn-primary mb-3 mx-3">Edit</button>
+          <button type="submit" class="btn btn-primary mb-3 mx-3" [disabled]="!customerForm.valid">Edit</button>
         </div>
       </form>
     </div>

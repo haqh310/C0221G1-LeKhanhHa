@@ -7,17 +7,21 @@ import {CustomerCreateComponent} from './customer-create/customer-create.compone
 import {CustomerEditComponent} from './customer-edit/customer-edit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 @NgModule({
   declarations: [CustomerListComponent, CustomerCreateComponent, CustomerEditComponent],
-  imports: [
-    CommonModule,
-    CustomerRoutingModule,
-    ReactiveFormsModule,
-    NgxPaginationModule,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        CustomerRoutingModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        FormsModule,
+        MatButtonModule,
+
+    ],
 })
 export class CustomerModule {
 }

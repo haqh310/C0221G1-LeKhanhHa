@@ -5,5 +5,5 @@ export interface ContractDetail {
   id?: number;
   quantity?: number;
   attachService?: AttachService;
-  contract?: Contract;
+  contractId?: number;
 }

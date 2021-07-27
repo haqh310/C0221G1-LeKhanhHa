@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../../model/customer/customer';
 import {CustomerService} from '../../../service/customer-service/customer.service';
 import {ConfirmDialogService} from '../../../modal-delete/confirm/confirm-dialog.service';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogExampleComponent} from '../../../dialog-example/dialog-example.component';
 
 @Component({
   selector: 'app-customer-list',
@@ -12,8 +14,10 @@ export class CustomerListComponent implements OnInit {
   customers: Customer[];
   p = 0;
   name: string;
+
   constructor(private customerService: CustomerService,
-              private confirmDialogService: ConfirmDialogService) {
+              private confirmDialogService: ConfirmDialogService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -30,9 +34,9 @@ export class CustomerListComponent implements OnInit {
   }
 
   Search() {
-    if (this.name === ''){
+    if (this.name === '') {
       this.ngOnInit();
-    }else {
+    } else {
       this.customers = this.customers.filter(customer => {
         return customer.customerName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
       });
@@ -43,7 +47,7 @@ export class CustomerListComponent implements OnInit {
   openConfirmationDialog(customerId: number, customerName: string) {
     this.confirmDialogService.confirm('customer name: ' + customerName)
       .then((confirmed) => {
-        if (confirmed){
+        if (confirmed) {
           this.customerService.deleteCustomer(customerId).subscribe(() => {
             console.log('OK');
             this.ngOnInit();
@@ -54,4 +58,23 @@ export class CustomerListComponent implements OnInit {
       }).catch(() => console.log('error'));
   }
 
+
+  removeCustomer(id: number, customerName: string) {
+
+    const confirmDialog = this.dialog.open(DialogExampleComponent, {
+      data: {
+        title: 'Accept delete Customer',
+        message: 'Are you sure, you want to remove an customer: ' + customerName
+      }
+    });
+
+    confirmDialog.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.customerService.deleteCustomer(id).subscribe(() => {
+          console.log('OK');
+          this.ngOnInit();
+        });
+      }
+    });
+  }
 }

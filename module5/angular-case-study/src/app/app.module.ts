@@ -7,10 +7,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {ModalDeleteComponent} from './modal-delete/modal-delete.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogExampleComponent } from './dialog-example/dialog-example.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
-    ModalDeleteComponent
+    ModalDeleteComponent,
+    DialogExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -18,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   bootstrap: [AppComponent],
   providers: [],

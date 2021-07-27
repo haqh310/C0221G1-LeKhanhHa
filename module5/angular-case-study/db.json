@@ -23,18 +23,18 @@
   ],
   "customers": [
     {
-      "customerCode": "KH-2547",
-      "customerName": "toandang",
-      "dateOfBirth": "1999-10-03",
-      "customerIdCard": "123456789",
+      "customerCode": "KH-0021",
+      "customerName": "khanh",
+      "dateOfBirth": "1995-02-15",
+      "customerIdCard": "123465789",
       "customerPhone": "0901234567",
-      "customerEmail": "toandn@gmail.com",
+      "customerEmail": "haqh310@gmail.com",
       "customerAddress": "danang",
       "customerType": {
-        "id": 4,
-        "customerTypeName": "Silver"
+        "id": 2,
+        "customerTypeName": "Platinum"
       },
-      "id": 3
+      "id": 4
     }
   ],
   "positions": [

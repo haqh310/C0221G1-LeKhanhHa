@@ -1,0 +1,97 @@
+<div class="container d-flex justify-content-center">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="col-4 border p-3" novalidate>
+    <h3 class="text-center">Register Form</h3>
+    <div class="form-group">
+      <label>Email: </label>
+      <input type="email" class="form-control" formControlName="email">
+      <div
+        *ngIf="!contactForm.controls.email?.valid && (contactForm.controls.email?.dirty||contactForm.controls.email?.touched)">
+        <small style="color: red">Email is not valid</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password">
+      <div
+        *ngIf="!contactForm.controls.password?.valid && (contactForm.controls.password?.dirty||contactForm.controls.password?.touched)">
+        <small style="color: red">Password is not valid</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input type="password" class="form-control" formControlName="confirmPassword">
+      <div class='form-text error' *ngIf="contactForm.controls.confirmPassword.touched">
+        <div *ngIf="contactForm.hasError('mismatchedPasswords')">
+          <small style="color: red">Passwords do not match.</small></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Country</label>
+      <select class="form-control" formControlName="country">
+        <option *ngFor="let c of countryList" value="{{c}}">{{c}}</option>
+      </select>
+      <div
+        *ngIf="!contactForm.controls.country?.valid && (contactForm.controls.country?.dirty||contactForm.controls.country?.touched)">
+        <small>Country is not valid</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" class="form-control" formControlName="age">
+      <div class='form-text error' *ngIf='contactForm.controls.age.touched'>
+        <div *ngIf="contactForm.controls.age.hasError('required')">
+          <small>Age is required.</small>
+        </div>
+        <div *ngIf="contactForm.controls.age.hasError('min')">
+          <small>Age must great 18.</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Gender: </label>
+      <input type="radio" value="male" formControlName="gender">Male
+      <input type="radio" value="female" formControlName="gender">Female
+      <div
+        *ngIf="!contactForm.controls.gender?.valid && (contactForm.controls.gender?.dirty||contactForm.controls.gender?.touched)">
+        <small style="color: red">Gender is not valid</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text" class="form-control" formControlName="phone">
+      <div
+        *ngIf="!contactForm.controls.phone?.valid && (contactForm.controls.phone?.dirty||contactForm.controls.phone?.touched)">
+        <small style="color: red">Phone is not valid</small>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-2">
+      <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
+    </div>
+  </form>
+</div>
+<hr>
+<div class="container d-flex flex-column justify-content-center">
+  <h3 class="text-danger">List Register</h3>
+  <table class="table">
+    <tr>
+      <th>#</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Country</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Phone</th>
+    </tr>
+    <tr *ngFor="let rg of registers, let i=index">
+      <td>{{i+1}}</td>
+      <td>{{rg.email}}</td>
+      <td>{{rg.password}}</td>
+      <td>{{rg.country}}</td>
+      <td>{{rg.age}}</td>
+      <td>{{rg.gender}}</td>
+      <td>{{rg.phone}}</td>
+    </tr>
+  </table>
+</div>
+<hr>
+

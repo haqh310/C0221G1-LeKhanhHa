@@ -6,13 +6,8 @@
         <div class="form-group">
           <label>Customer Code:</label>
           <input type="text" class="form-control" placeholder="Enter code... " formControlName="customerCode">
-          <div class='form-text error' *ngIf='customerForm.controls.customerCode.touched'>
-            <div *ngIf="customerForm.controls.customerCode.hasError('required')">
-              <small>Code is required.</small>
-            </div>
-            <div *ngIf="customerForm.controls.customerCode.hasError('pattern')">
-              <small>Code must format Kh-XXXX.</small>
-            </div>
+          <div class='form-text error' *ngFor="let valid of validMsg.getMessage().codeCustomer">
+            <small *ngIf="checkValid('customerCode', valid.type)">{{valid.msg}}</small>
           </div>
         </div>
         <div class="form-group">
@@ -22,67 +17,46 @@
             <option *ngFor="let type of customerTypes"
                     [ngValue]="type">{{type.customerTypeName}}</option>
           </select>
-          <div class='form-text error' *ngIf='customerForm.controls.customerType.touched'>
-            <div *ngIf="customerForm.controls.customerType.hasError('required')">
-              <small>Customer type is required.</small>
-            </div>
+          <div class='form-text error' *ngFor="let valid of validMsg.getMessage().object">
+            <small *ngIf="checkValid('customerType', valid.type)">{{valid.msg}}</small>
           </div>
         </div>
         <div class="form-group">
           <label>Name:</label>
           <input type="text" class="form-control" placeholder="Enter name... " formControlName="customerName">
-          <div class='form-text error' *ngIf='customerForm.controls.customerName.touched'>
-            <div *ngIf="customerForm.controls.customerName.hasError('required')">
-              <small>Name is required.</small>
-            </div>
+          <div class='form-text error' *ngFor="let valid of validMsg.getMessage().name">
+            <small *ngIf="checkValid('customerName', valid.type)">{{valid.msg}}</small>
           </div>
         </div>
         <div class="form-group">
           <label>Birthday:</label>
           <input type="date" class="form-control" placeholder="Enter birthday" formControlName="dateOfBirth">
-          <div class='form-text error' *ngIf='customerForm.controls.dateOfBirth.touched'>
-            <div *ngIf="customerForm.controls.dateOfBirth.hasError('required')">
-              <small>Date of birth is required.</small>
-            </div>
-            <div *ngIf="customerForm.controls.dateOfBirth.hasError('pattern')">
-              <small>Date of birth must format dd/MM/yyyy.</small>
-            </div>
+          <div class='form-text error' *ngFor="let valid of validMsg.getMessage().date">
+            <small *ngIf="checkValid('dateOfBirth', valid.type)">{{valid.msg}}</small>
+          </div>
+          <div class='form-text error' *ngFor="let valid of validMsg.getMessage().age">
+            <small *ngIf="checkValid('dateOfBirth', valid.type)">{{valid.msg}}</small>
           </div>
         </div>
         <div class="form-group">
           <label>ID Card: </label>
           <input type="text" class="form-control" placeholder="Enter id card... " formControlName="customerIdCard">
-          <div class='form-text error' *ngIf='customerForm.controls.customerIdCard.touched'>
-            <div *ngIf="customerForm.controls.customerIdCard.hasError('required')">
-              <small>Id card is required.</small>
-            </div>
-            <div *ngIf="customerForm.controls.customerIdCard.hasError('pattern')">
-              <small>Id card must format XXXXXXXXX or XXXXXXXXXXXX.</small>
-            </div>
+          <div class='form-text error' *ngFor="let valid of validMsg.getMessage().idCard">
+            <small *ngIf="checkValid('customerIdCard', valid.type)">{{valid.msg}}</small>
           </div>
         </div>
         <div class="form-group">
           <label>Phone: </label>
           <input type="text" class="form-control" placeholder="Enter phone number..." formControlName="customerPhone">
-          <div class='form-text error' *ngIf='customerForm.controls.customerPhone.touched'>
-            <div *ngIf="customerForm.controls.customerPhone.hasError('required')">
-              <small>Phone is required.</small>
-            </div>
-            <div *ngIf="customerForm.controls.customerPhone.hasError('pattern')">
-              <small>Phone must format 090xxxxxxx or 091xxxxxxx.</small>
-            </div>
+          <div class='form-text error' *ngFor="let valid of validMsg.getMessage().phone">
+            <small *ngIf="checkValid('customerPhone', valid.type)">{{valid.msg}}</small>
           </div>
         </div>
         <div class="form-group">
           <label>Email: </label>
           <input type="email" class="form-control" placeholder="Enter email..." formControlName="customerEmail">
-          <div class='form-text error' *ngIf='customerForm.controls.customerEmail.touched'>
-            <div *ngIf="customerForm.controls.customerEmail.hasError('required')">
-              <small>Email is required.</small>
-            </div>
-            <div *ngIf="customerForm.controls.customerEmail.hasError('email')">
-              <small>Email must format email@.</small>
-            </div>
+          <div class='form-text error' *ngFor="let valid of validMsg.getMessage().email">
+            <small *ngIf="checkValid('customerEmail', valid.type)">{{valid.msg}}</small>
           </div>
         </div>
         <div class="form-group">
@@ -91,7 +65,7 @@
         </div>
         <div class="d-flex justify-content-center ">
           <a class="btn btn-secondary mb-3" routerLink="/customer/list">Back to menu</a>
-          <button type="submit" class="btn btn-primary mb-3 mx-3">Create</button>
+          <button type="submit" class="btn btn-primary mb-3 mx-3" [disabled]="!customerForm.valid">Create</button>
         </div>
       </form>
     </div>

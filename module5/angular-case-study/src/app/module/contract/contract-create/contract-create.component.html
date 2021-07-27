@@ -1,1 +1,92 @@
+<div class="row">
+  <div class="container d-flex justify-content-center ">
+    <div class="col-6 d-flex flex-column border border-info">
+      <h1 class="text-center text-danger mt-2">Create new contract</h1>
+      <form [formGroup]="contractForm" (ngSubmit)="createContract()">
+        <div class="form-group">
+          <label>Customer: </label>
+          <select class="form-control" formControlName="customer">
+            <option value="">---Select customer---</option>
+            <option *ngFor="let customer of customers"
+                    [ngValue]="customer">{{customer.customerName}}</option>
+          </select>
+          <div class='form-text error' *ngIf='contractForm.controls.customer.touched'>
+            <div *ngIf="contractForm.controls.customer.hasError('required')">
+              <small>Customer is required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Employee: </label>
+          <select class="form-control" formControlName="employee">
+            <option value="">---Select employee---</option>
+            <option *ngFor="let employee of employees"
+                    [ngValue]="employee">{{employee.employeeName}}</option>
+          </select>
+          <div class='form-text error' *ngIf='contractForm.controls.employee.touched'>
+            <div *ngIf="contractForm.controls.employee.hasError('required')">
+              <small>Employee is required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Service: </label>
+          <select class="form-control" formControlName="service">
+            <option value="">---Select service---</option>
+            <option *ngFor="let service of services"
+                    [ngValue]="service">{{service.serviceName}}</option>
+          </select>
+          <div class='form-text error' *ngIf='contractForm.controls.service.touched'>
+            <div *ngIf="contractForm.controls.service.hasError('required')">
+              <small>Service is required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Start date:</label>
+          <input type="date" class="form-control" formControlName="contractStartDate">
+          <div class='form-text error' *ngIf='contractForm.controls.contractStartDate.touched'>
+            <div *ngIf="contractForm.controls.contractStartDate.hasError('required')">
+              <small>Start date is required.</small>
+            </div>
+            <div *ngIf="contractForm.controls.contractStartDate.hasError('pattern')">
+              <small>Start date must format dd/MM/yyyy.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>End date:</label>
+          <input type="date" class="form-control" formControlName="contractEndDate">
+          <div class='form-text error' *ngIf='contractForm.controls.contractEndDate.touched'>
+            <div *ngIf="contractForm.controls.contractEndDate.hasError('required')">
+              <small>End date is required.</small>
+            </div>
+            <div *ngIf="contractForm.controls.contractEndDate.hasError('pattern')">
+              <small>End date must format dd/MM/yyyy.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Deposit: </label>
+          <input type="text" class="form-control" placeholder="Enter deposit..." formControlName="contractDeposit">
+          <div class='form-text error' *ngIf='contractForm.controls.contractDeposit.touched'>
+            <div *ngIf="contractForm.controls.contractDeposit.hasError('required')">
+              <small>Deposit is required.</small>
+            </div>
+            <div *ngIf="contractForm.controls.contractDeposit.hasError('pattern')">
+              <small>Deposit must be format number.</small>
+            </div>
+            <div *ngIf="contractForm.controls.contractDeposit.hasError('min')">
+              <small>Deposit must be great 0.</small>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center ">
+          <a class="btn btn-secondary mb-3" routerLink="/contract/list">Back to menu</a>
+          <button type="submit" class="btn btn-primary mb-3 mx-3" [disabled]="!contractForm.valid">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 <p>contract-create works!</p>
