@@ -3,7 +3,7 @@
   <p><a href="/">Back to menu</a></p>
   <div class="row">
     <div class="col-6">
-      <p><a class="btn btn-success " routerLink="/service/create"><strong>+ </strong>Create customer</a></p>
+      <p><a class="btn btn-success " routerLink="/service/create"><strong>+ </strong>Create service</a></p>
     </div>
     <div class="col-6 d-flex justify-content-end ">
       <input class="mb-3 mr-2" type="text" name="name" [(ngModel)]="name" placeholder="Enter name...">
@@ -40,7 +40,10 @@
         <a class="btn btn-primary" [routerLink]="['/service/edit',service.id]">Edit</a>
       </td>
       <td>
-        <button (click)="openConfirmationDialog(service.id, service.serviceName)" type="button" class="btn btn-primary">
+<!--        <button (click)="openConfirmationDialog(service.id, service.serviceName)" type="button" class="btn btn-primary">-->
+<!--          Delete-->
+<!--        </button>-->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="deleteId(service.id, service.serviceName)">
           Delete
         </button>
       </td>
@@ -49,5 +52,24 @@
   </table>
   <div class="d-flex justify-content-end">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Accept delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Do you want service name: {{message}} ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteService()">Delete</button>
+      </div>
+    </div>
   </div>
 </div>

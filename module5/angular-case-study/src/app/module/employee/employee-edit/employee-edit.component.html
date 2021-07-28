@@ -30,7 +30,7 @@
             <option *ngFor="let position of positions"
                     [ngValue]="position">{{position.positionName}}</option>
           </select>
-          <div class='form-text error' *ngIf='employeeForm.controls.position.touched'>
+          <div class='form-text error' *ngIf='employeeForm.controls.position.touched' >
             <div *ngIf="employeeForm.controls.position.hasError('required')">
               <small>Position is required.</small>
             </div>

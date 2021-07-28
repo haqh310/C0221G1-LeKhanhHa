@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EmployeeService} from '../../../service/employee-service/employee.service';
 import {Employee} from '../../../model/employee/employee';
 import {ConfirmDialogService} from '../../../modal-delete/confirm/confirm-dialog.service';
+import {OrderPipe} from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-employee-list',
@@ -13,13 +14,16 @@ export class EmployeeListComponent implements OnInit {
   p = 0;
   name: string;
   id: number;
-
+  order: string = 'employeeName';
+  reverse: boolean = false;
   constructor(private employeeService: EmployeeService,
-              private confirmDialogService: ConfirmDialogService) {
+              private confirmDialogService: ConfirmDialogService,
+              private orderPipe: OrderPipe) {
   }
 
   ngOnInit(): void {
     this.getListEmployee();
+    this.orderPipe.transform(this.employees, 'employeeName');
   }
 
   getListEmployee() {
@@ -39,11 +43,13 @@ export class EmployeeListComponent implements OnInit {
         return employee.employeeName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
       });
     }
+    this.p = 0;
   }
+
   openConfirmationDialog(employeeId: number, employeeName: string) {
     this.confirmDialogService.confirm('employee name: ' + employeeName)
       .then((confirmed) => {
-        if (confirmed){
+        if (confirmed) {
           this.employeeService.deleteEmployee(employeeId).subscribe(() => {
             console.log('OK');
             this.ngOnInit();
@@ -52,5 +58,13 @@ export class EmployeeListComponent implements OnInit {
           });
         }
       }).catch(() => console.log('error'));
+  }
+
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+
+    this.order = value;
   }
 }

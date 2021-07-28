@@ -34,13 +34,16 @@ export class CustomerListComponent implements OnInit {
   }
 
   Search() {
-    if (this.name === '') {
-      this.ngOnInit();
-    } else {
-      this.customers = this.customers.filter(customer => {
-        return customer.customerName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-      });
-    }
+    // if (this.name === '') {
+    //   this.ngOnInit();
+    // } else {
+    //   this.customers = this.customers.filter(customer => {
+    //     return customer.customerName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+    //   });
+    // }
+    this.customerService.searchByName(this.name).subscribe(customers => {
+      this.customers = customers;
+    });
     this.p = 0;
   }
 

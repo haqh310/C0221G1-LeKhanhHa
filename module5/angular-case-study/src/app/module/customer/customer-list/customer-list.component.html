@@ -27,7 +27,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let customer of customers| paginate: { itemsPerPage: 2,
+    <tr *ngFor="let customer of customers| paginate: { itemsPerPage: 1,
                                                       currentPage: p},  let i = index ">
       <td>{{i+1}}</td>
       <td>{{customer.customerCode}}</td>

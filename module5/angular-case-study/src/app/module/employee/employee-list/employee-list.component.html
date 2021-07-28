@@ -14,7 +14,9 @@
     <thead>
     <tr>
       <th>STT</th>
-      <th>Name</th>
+      <th  [class.active]="order === 'info.name'"
+           (click)="setOrder('employeeName')" >Name<span [hidden]="reverse">▼</span
+      ><span [hidden]="!reverse">▲</span></th>
       <th>Position</th>
       <th>Eduction Degree</th>
       <th>Division</th>
@@ -29,7 +31,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let employee of employees| paginate: { itemsPerPage: 2,
+    <tr *ngFor="let employee of employees | orderBy: order:reverse | paginate: { itemsPerPage: 2,
                                                       currentPage: p},  let i = index ">
       <td>{{i+1}}</td>
       <td>{{employee.employeeName}}</td>

@@ -35,6 +35,20 @@
         "customerTypeName": "Platinum"
       },
       "id": 4
+    },
+    {
+      "customerCode": "KH-2541",
+      "customerName": "toandang",
+      "dateOfBirth": "1995-10-03",
+      "customerIdCard": "123456789",
+      "customerPhone": "0901234568",
+      "customerEmail": "toan.dn@gmail.com",
+      "customerAddress": "danang",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      },
+      "id": 5
     }
   ],
   "positions": [
@@ -121,6 +135,28 @@
         "educationDegreeName": "Cao đẳng"
       },
       "id": 1
+    },
+    {
+      "employeeName": "tin nguyen",
+      "employeeBirthday": "1999-10-03",
+      "employeeIdCard": "123456789",
+      "employeeSalary": "1200",
+      "employeePhone": "0901234567",
+      "employeeEmail": "tin.nguyen@gmail.com",
+      "employeeAddress": "dn",
+      "division": {
+        "id": 2,
+        "divisionName": "Hành Chính"
+      },
+      "position": {
+        "id": 2,
+        "positionName": "Phục vụ"
+      },
+      "educationDegree": {
+        "id": 2,
+        "educationDegreeName": "Cao đẳng"
+      },
+      "id": 2
     }
   ],
   "rent-types": [
@@ -142,18 +178,18 @@
   ],
   "services": [
     {
-      "serviceCode": "DV-1234",
-      "serviceName": "Villa1",
-      "serviceArea": 200,
-      "serviceCost": 2000,
-      "serviceMaxPeople": 5,
-      "serviceStatus": "OK",
+      "serviceCode": "DV-1254",
+      "serviceName": "room12",
+      "serviceArea": 30,
+      "serviceCost": 300,
+      "serviceMaxPeople": 2,
+      "serviceStatus": "SS",
       "rentType": {
-        "id": 1,
-        "rentTypeName": "Villa",
-        "rentTypeCost": 1500
+        "id": 3,
+        "rentTypeName": "Room",
+        "rentTypeCost": 500
       },
-      "id": 1
+      "id": 2
     }
   ]
 }

@@ -7,6 +7,8 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {OrderModule} from 'ngx-order-pipe';
+
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     EmployeeRoutingModule,
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OrderModule,
   ]
 })
 export class EmployeeModule { }
