@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {AttachService} from '../../model/contract/attach-service';
 import {Contract} from '../../model/contract/contract';
 import {ContractDetail} from '../../model/contract/contract-detail';
+import {Customer} from '../../model/customer/customer';
 const API_URL = `${environment.apiUrl}`;
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class ContractService {
   findById(id: number): Observable<Contract> {
     return this.http.get<Contract>(`${API_URL}/contracts/${id}`);
   }
-  updateCustomer(id: number, contract: Contract): Observable<Contract> {
+  updateContract(id: number, contract: Contract): Observable<Contract> {
     return this.http.put<Contract>(`${API_URL}/contracts/${id}`, contract);
   }
 
@@ -36,5 +37,8 @@ export class ContractService {
   }
   getAttachService(): Observable<AttachService[]>{
     return this.http.get<AttachService[]>(API_URL + '/attach-services');
+  }
+  searchByName(customerName: string): Observable<Contract[]>{
+    return this.http.get<Contract[]>(API_URL+'/contracts?customerName_like='+customerName);
   }
 }

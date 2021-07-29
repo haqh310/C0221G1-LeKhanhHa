@@ -10,11 +10,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import {LayoutModule} from './layout/layout.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     ModalDeleteComponent,
-    DialogExampleComponent
+    DialogExampleComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
+    LayoutModule,
   ],
   bootstrap: [AppComponent],
   providers: [],

@@ -23,9 +23,11 @@ export class ContractDetailCreateComponent implements OnInit {
   }
   getList(){
     this.contractService.getAttachService().subscribe(attachServices => {
+      console.log(attachServices);
       this.attachService = attachServices;
     });
     this.contractService.getListContract().subscribe(contracts => {
+      console.log(contracts);
       this.contracts = contracts;
     });
   }
@@ -40,6 +42,8 @@ export class ContractDetailCreateComponent implements OnInit {
     const contractDetail = this.contractDetailForm.value;
     this.contractService.saveContractDetail(contractDetail).subscribe(() => {
       this.router.navigate(['contract/list']);
+      alert("Create new contract detail successfully!!!");
     });
   }
+
 }
