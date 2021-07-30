@@ -285,6 +285,62 @@
       "contractEndDate": "2021-08-03",
       "contractDeposit": "1000",
       "id": 1
+    },
+    {
+      "customer": {
+        "customerCode": "KH-0021",
+        "customerName": "khanh",
+        "dateOfBirth": "1995-02-15",
+        "customerIdCard": "123465789",
+        "customerPhone": "0901234567",
+        "customerEmail": "haqh310@gmail.com",
+        "customerAddress": "danang",
+        "customerType": {
+          "id": 2,
+          "customerTypeName": "Platinum"
+        },
+        "id": 4
+      },
+      "employee": {
+        "employeeName": "haqh",
+        "employeeBirthday": "1999-10-03",
+        "employeeIdCard": "123456789",
+        "employeeSalary": "1500",
+        "employeePhone": "0901234567",
+        "employeeEmail": "haqh310@gmail.com",
+        "employeeAddress": "qb",
+        "division": {
+          "id": 1,
+          "divisionName": "Sale – Marketing"
+        },
+        "position": {
+          "id": 3,
+          "positionName": "Chuyên viên"
+        },
+        "educationDegree": {
+          "id": 2,
+          "educationDegreeName": "Cao đẳng"
+        },
+        "id": 1
+      },
+      "service": {
+        "serviceCode": "DV-1254",
+        "serviceName": "room12",
+        "serviceArea": 30,
+        "serviceCost": 300,
+        "serviceMaxPeople": 2,
+        "serviceStatus": "SS",
+        "rentType": {
+          "id": 3,
+          "rentTypeName": "Room",
+          "rentTypeCost": 500
+        },
+        "id": 2
+      },
+      "contractStartDate": "2021-07-05",
+      "contractEndDate": "2021-08-05",
+      "contractDeposit": "1000",
+      "id": 2
     }
   ]
 }

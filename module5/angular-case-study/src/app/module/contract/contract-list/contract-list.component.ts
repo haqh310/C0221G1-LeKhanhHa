@@ -14,7 +14,9 @@ export class ContractListComponent implements OnInit {
   contracts : Contract[];
   contractDetails: ContractDetail[];
   name: string;
-  p= 0;
+  p= 1;
+  nameSort: string ='';
+  sort: string = 'asc';
   constructor(private contractService: ContractService,
               private dialog : MatDialog) { }
 
@@ -22,8 +24,13 @@ export class ContractListComponent implements OnInit {
     this.getAll();
     this.getListDetail();
   }
+  // getAll(){
+  //   this.contractService.getListContract().subscribe(contracts => {
+  //     this.contracts = contracts;
+  //   });
+  // }
   getAll(){
-    this.contractService.getListContract().subscribe(contracts => {
+    this.contractService.getList(this.p, this.nameSort, this.sort).subscribe(contracts => {
       this.contracts = contracts;
     });
   }
@@ -56,5 +63,20 @@ export class ContractListComponent implements OnInit {
         });
       }
     });
+  }
+
+  nextPage(s: number) {
+    this.p = this.p + s;
+    this.getAll();
+  }
+
+  sortOrder(nameSort: string) {
+      this.nameSort= nameSort;
+      this.getAll();
+      if(this.sort == 'asc'){
+        this.sort = 'desc';
+      }else {
+        this.sort = 'asc';
+      }
   }
 }

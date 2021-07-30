@@ -14,12 +14,15 @@
   <table class="table table-bordered table-striped ">
     <thead>
     <tr>
-      <th>STT</th>
+      <th (click)="sortOrder('id')" >Id<span [hidden]="sort == 'asc'">▼</span
+      ><span [hidden]="sort == 'desc'">▲</span></th>
       <th>Code Customer</th>
-      <th>Customer</th>
+      <th (click)="sortOrder('customer.customerName')" >Customer<span [hidden]="sort == 'asc'">▼</span
+      ><span [hidden]="sort == 'desc'">▲</span></th>
       <th>Employee</th>
       <th>Service</th>
       <th>Attach Service</th>
+      <th>Total money</th>
       <th>Start Date</th>
       <th>End Date</th>
       <th>Edit</th>
@@ -27,18 +30,20 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let contract of contracts| paginate: { itemsPerPage: 1,
-                                                      currentPage: p},  let i = index ">
+    <tr *ngFor="let contract of contracts,  let i = index ">
       <td>{{i+1}}</td>
+      <td>{{contract.customer.customerCode}}</td>
       <td>{{contract.customer.customerName}}</td>
       <td>{{contract.employee.employeeName}}</td>
       <td>{{contract.service.serviceName}}</td>
-      <ng-container *ngFor="let detail of contractDetails">
-        <span *ngIf="detail.id == contract.id ">{{detail.attachService.attachServiceName}} ,</span>
-      </ng-container>
+      <td>
+        <ng-container *ngFor="let detail of contractDetails">
+          <span *ngIf="detail.id == contract.id ">{{detail.attachService.attachServiceName}} ,</span>
+        </ng-container>
+      </td>
+      <td>{{contract.service.serviceCost }}</td>
       <td>{{contract.contractStartDate | date: 'dd/MM/yyyy'}}</td>
       <td>{{contract.contractEndDate | date: 'dd/MM/yyyy'}}</td>
-      <td>{{contract.service.serviceCost }}</td>
       <td>
         <a class="btn btn-primary" [routerLink]="['/contract/edit',contract.id]">Edit</a>
       </td>
@@ -51,6 +56,8 @@
     </tbody>
   </table>
   <div class="d-flex justify-content-end">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<!--    <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+    <button class="btn btn-primary" [hidden]="p == 1"  (click)="nextPage(-1)">Previous</button>
+    <button class="btn btn-primary" [hidden]="!contracts" (click)="nextPage(1)" >Next</button>
   </div>
 </div>

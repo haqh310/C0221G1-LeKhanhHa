@@ -32,7 +32,7 @@ export class CustomerService {
   getCustomerType(): Observable<CustomerType[]>{
     return this.http.get<CustomerType[]>(API_URL + '/customer-types');
   }
-  searchByName(customerName: string): Observable<Customer[]>{
-    return this.http.get<Customer[]>(API_URL+'/customers?customerName_like='+customerName);
+  searchByName(customerName: string, startDate: string, endDate: string): Observable<Customer[]>{
+    return this.http.get<Customer[]>(API_URL+'/customers?customerName_like='+customerName+ '&dateOfBirth_gte='+startDate+'&dateOfBirth_lte='+endDate );
   }
 }

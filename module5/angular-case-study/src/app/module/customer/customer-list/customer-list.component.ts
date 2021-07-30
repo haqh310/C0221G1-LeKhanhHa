@@ -13,7 +13,9 @@ import {DialogExampleComponent} from '../../../dialog-example/dialog-example.com
 export class CustomerListComponent implements OnInit {
   customers: Customer[];
   p = 0;
-  name: string;
+  name: string ='';
+  starDate: string;
+  endDate: string;
 
   constructor(private customerService: CustomerService,
               private confirmDialogService: ConfirmDialogService,
@@ -41,7 +43,7 @@ export class CustomerListComponent implements OnInit {
     //     return customer.customerName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
     //   });
     // }
-    this.customerService.searchByName(this.name).subscribe(customers => {
+    this.customerService.searchByName(this.name, this.starDate, this.endDate).subscribe(customers => {
       this.customers = customers;
     });
     this.p = 0;
