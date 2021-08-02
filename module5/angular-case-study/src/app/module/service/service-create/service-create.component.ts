@@ -39,8 +39,8 @@ export class ServiceCreateComponent implements OnInit {
   createService() {
     const service = this.serviceForm.value;
     this.serviceService.saveService(service).subscribe(() => {
-      alert('successfully');
       this.router.navigate(['service/list']);
+      alert('successfully');
     });
   }
 }

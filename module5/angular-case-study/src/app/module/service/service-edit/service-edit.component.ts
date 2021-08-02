@@ -63,7 +63,7 @@ export class ServiceEditComponent implements OnInit {
   editService() {
     const service = this.serviceForm.value;
     this.serviceService.updateService(this.id, service).subscribe(() => {
-      this.router.navigate(['service/list']);
+        this.router.navigate(['service/list']);
     }, e => {
       console.log(e);
     });

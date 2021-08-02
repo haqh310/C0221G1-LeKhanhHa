@@ -179,15 +179,29 @@
   "services": [
     {
       "serviceCode": "DV-1254",
-      "serviceName": "room12",
-      "serviceArea": 30,
-      "serviceCost": 300,
-      "serviceMaxPeople": 2,
-      "serviceStatus": "SS",
+      "serviceName": "villa1",
+      "serviceArea": 250,
+      "serviceCost": 2000,
+      "serviceMaxPeople": 5,
+      "serviceStatus": "OK",
       "rentType": {
-        "id": 3,
-        "rentTypeName": "Room",
-        "rentTypeCost": 500
+        "id": 1,
+        "rentTypeName": "Villa",
+        "rentTypeCost": 1500
+      },
+      "id": 1
+    },
+    {
+      "serviceCode": "DV-0024",
+      "serviceName": "house1",
+      "serviceArea": 80,
+      "serviceCost": 1500,
+      "serviceMaxPeople": 3,
+      "serviceStatus": "Busy",
+      "rentType": {
+        "id": 2,
+        "rentTypeName": "House",
+        "rentTypeCost": 1000
       },
       "id": 2
     }
